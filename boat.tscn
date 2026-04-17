@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://drcdti1uctp68" path="res://boat.gd" id="1_viw7v"]
 [ext_resource type="Texture2D" uid="uid://boeabpv5y7spn" path="res://Assets/rowboat_colormap.png" id="2_viw7v"]
 [ext_resource type="PackedScene" uid="uid://ra3rw6gc2uj7" path="res://Assets/oar.glb" id="3_henu8"]
+[ext_resource type="Script" uid="uid://bfmscai4j4v22" path="res://Assets/oar.gd" id="4_anwow"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1va08"]
 resource_name = "colormap"
@@ -120,4 +121,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, 0.6)
 transform = Transform3D(0.88860434, 0, -0.45867455, 0, 1, 0, 0.45867455, 0, 0.88860434, 0.58938766, 0.56689453, -0.4023703)
 
 [node name="oar2" parent="." unique_id=1902354282 instance=ExtResource("3_henu8")]
-transform = Transform3D(-0.8610574, 0, -0.5085078, 0, 1, 0, 0.5085078, 0, -0.8610574, -0.55538416, 0.56689453, -0.4023703)
+transform = Transform3D(-0.86105734, 0, -0.50850785, 0, 1, 0, 0.50850785, 0, -0.86105734, -0.55538416, 0.56689453, -0.4023703)
+script = ExtResource("4_anwow")
