@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 			if forward_input and rowing_phase < 0.5:
 				var forward = global_basis.z.slide(gravity.normalized())
 				apply_force(forward * forward_input * forward_rowing_force)
-			if rotation_input and rowing_phase < 0.5:
+			elif rotation_input and rowing_phase < 0.5:
 				var up = global_basis.y
 				apply_torque(up * rotation_input * rotation_rowing_force)
 			else:
