@@ -63,6 +63,7 @@
 [ext_resource type="AudioStream" uid="uid://cbgtompu1q5fx" path="res://sounds/Extra/Explosion/Explosion1.ogg" id="59_65rgv"]
 [ext_resource type="AudioStream" uid="uid://dk41relrg3udf" path="res://sounds/Extra/Explosion/Explosion2.ogg" id="60_aclwq"]
 [ext_resource type="Script" uid="uid://dyqsxhul6i7xc" path="res://wybuchy.gd" id="61_r7aml"]
+[ext_resource type="PackedScene" uid="uid://bbkwortyy8qmo" path="res://baba_hand.tscn" id="61_ld3be"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0dbrq"]
 sky_top_color = Color(0.63784295, 0.6378433, 0.63784295, 1)
@@ -607,14 +608,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327734, -0.51250935)
 [node name="DymParticle" parent="." unique_id=1772102421 instance=ExtResource("21_4hubk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6670103, 0.89956, 0)
 
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1207189560]
-transform = Transform3D(0.021299591, 0.29927415, -0.9539289, -4.0978175e-06, 0.9541455, 0.29934192, 0.99977267, -0.0063719726, 0.02032416, -22.224564, 11.22849, 0)
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1207189560 node_paths=PackedStringArray("look_at_targets")]
+transform = Transform3D(0.02097963, 0.30570576, -0.9518942, -6.231662e-05, 0.9521044, 0.30577174, 0.99977934, -0.0063557, 0.019993886, -22.224564, 11.22849, 0)
 script = ExtResource("23_fq6f0")
 look_at_mode = 3
+look_at_targets = [NodePath("../Srodek"), NodePath("../RowBoat")]
 tween_resource = SubResource("Resource_t0tu2")
 look_at_offset = Vector3(0, 2, 0)
 look_at_damping = true
 noise = SubResource("Resource_ld3be")
+align_transform_with_view = Callable()
+align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="BabaYaga" parent="." unique_id=276386204 instance=ExtResource("43_oqoeq")]
@@ -643,6 +647,9 @@ transform = Transform3D(0.0147245135, 0, -0.9998916, 0, 1, 0, 0.9998916, 0, 0.01
 
 [node name="Eyeball" parent="." unique_id=939492289 instance=ExtResource("39_rl2ho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6458511, 1.9836197, 6.054784)
+
+[node name="BabaHand" parent="." unique_id=1395648150 instance=ExtResource("61_ld3be")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21440601, -8.182022, -0.2579999)
 
 [connection signal="timeout" from="Camera3D/S_BabaJaga/Timer" to="Camera3D/S_BabaJaga" method="_on_timer_timeout"]
 [connection signal="timeout" from="Camera3D/S_BabaJaga/Timer" to="Camera3D/Didaskalia" method="_on_timer_timeout"]

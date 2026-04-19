@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://bbkwortyy8qmo"]
+
+[ext_resource type="Texture2D" uid="uid://ca4di85jalkp5" path="res://DigiPaint/Hand.png" id="1_277u0"]
+[ext_resource type="Script" uid="uid://cfbyilsx5eu21" path="res://baba_hand.gd" id="1_u243k"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_cm22m"]
+size = Vector2(138.24, 77.76)
+center_offset = Vector3(-25.64, 80.175, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecj2m"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_277u0")
+billboard_mode = 1
+stencil_mode = 3
+stencil_flags = 2
+
+[sub_resource type="Animation" id="Animation_u243k"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BabaHand:mesh:center_offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-25.64, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BabaHand:mesh:center_offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(80.175, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BabaHand:mesh:center_offset:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_lp6lx"]
+resource_name = "throwing"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BabaHand:mesh:center_offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3, 3, 3),
+"points": PackedFloat32Array(-25.64, -0.06666667, -9.735, 0.06666667, 9.735, 13.3, -0.05833333, 0, 0.05833333, 0, -25.64, -0.05833333, 14.43375, 0.05833333, -14.43375, -44.435, -0.058333337, 0, 0.058333337, 0, -25.64, -0.058333337, -4.6987505, 0.058333337, 4.6987505),
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.76666665, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BabaHand:mesh:center_offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3, 3, 3),
+"points": PackedFloat32Array(80.175, -0.06666667, 7.9105005, 0.06666667, -7.9105005, 48.533, -0.05833333, 8.703751, 0.05833333, -8.703751, 45.36, -0.05833333, -4.5737505, 0.05833333, 4.5737505, 66.828, -0.058333337, -8.703751, 0.058333337, 8.703751, 80.175, -0.058333337, -3.33675, 0.058333337, 3.33675),
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.76666665, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BabaHand:mesh:center_offset:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3, 3, 3),
+"points": PackedFloat32Array(0, -0.06666667, 0, 0.06666667, 0, 0, -0.05833333, 0, 0.05833333, 0, 0, -0.05833333, 0, 0.05833333, 0, 0, -0.058333337, 0, 0.058333337, 0, 0, -0.058333337, 0, 0.058333337, 0),
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.76666665, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cv2f6"]
+_data = {
+&"RESET": SubResource("Animation_u243k"),
+&"throwing": SubResource("Animation_lp6lx")
+}
+
+[node name="BabaHand" type="Node3D" unique_id=1395648150]
+script = ExtResource("1_u243k")
+
+[node name="BabaHand" type="MeshInstance3D" parent="." unique_id=276386204]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0, -5.85, 0)
+mesh = SubResource("QuadMesh_cm22m")
+surface_material_override/0 = SubResource("StandardMaterial3D_ecj2m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1571721900]
+libraries/ = SubResource("AnimationLibrary_cv2f6")
+speed_scale = 0.5
