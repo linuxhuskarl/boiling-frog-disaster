@@ -1,0 +1,646 @@
+[gd_scene format=3 uid="uid://rvxvyyhk5y23"]
+
+[ext_resource type="Script" uid="uid://bqe6mqbkli6g" path="res://Assets/frog/frog.gd" id="1_j225e"]
+[ext_resource type="PackedScene" uid="uid://cdl6ucfkehxgb" path="res://Assets/frog/frogga-nm2-rigged.glb" id="1_whe2r"]
+[ext_resource type="PackedScene" uid="uid://p07ao1cnxejl" path="res://Assets/frog/walnit-paddle.glb" id="2_6ekd3"]
+[ext_resource type="AudioStream" uid="uid://d1wo2npmxkb86" path="res://sounds/Rowing/Rowing1.ogg" id="4_r8jdr"]
+[ext_resource type="AudioStream" uid="uid://b7iih2tsumje2" path="res://sounds/Rowing/Rowing2.ogg" id="5_i3f5e"]
+[ext_resource type="AudioStream" uid="uid://brl3sswkns7ss" path="res://sounds/Rowing/Rowing3.ogg" id="6_57ugy"]
+[ext_resource type="AudioStream" uid="uid://bt6j6afb427kl" path="res://sounds/Rowing/Rowing4.ogg" id="7_rdcho"]
+[ext_resource type="AudioStream" uid="uid://cfei7ea4hg68q" path="res://sounds/Rowing/Rowing5.ogg" id="8_hr3y0"]
+[ext_resource type="AudioStream" uid="uid://djkr2yiao61u4" path="res://sounds/Rowing/Rowing6.ogg" id="9_vm8d0"]
+
+[sub_resource type="Animation" id="Animation_6ekd3"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaddleTargetL:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.030304313, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleTargetL:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.042417526, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleTargetL:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.53713775, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyIKTarget:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BodyIKTarget:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.4067633, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BodyIKTarget:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.0494573, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PaddleTargetR:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.030304313, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PaddleTargetR:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.15413702, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PaddleTargetR:position:z")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.677616, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yu1va"]
+random_pitch = 1.2599211
+random_volume_offset_db = 3.0
+streams_count = 6
+stream_0/stream = ExtResource("4_r8jdr")
+stream_1/stream = ExtResource("5_i3f5e")
+stream_2/stream = ExtResource("6_57ugy")
+stream_3/stream = ExtResource("7_rdcho")
+stream_4/stream = ExtResource("8_hr3y0")
+stream_5/stream = ExtResource("9_vm8d0")
+
+[sub_resource type="Animation" id="Animation_5cyyp"]
+resource_name = "anticlockwise"
+length = 0.73333335
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaddleTargetL:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-0.15413702, 0, 0, 0.01666667, 0.18476515, 0.9544538, -0.01666667, -0.059480485, 0.06666666, 0.2379219, 1.6302773, -0.06666666, 0.14077798, 0.011111121, -0.023463018, 0.513535, -0.011111121, 0.08497217, 0.027777772, -0.21243021, -0.15413702, -0.027777772, 0.020524146, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.4666667, 0.5666667, 0.73333335)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleTargetL:position:z")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(3.677616, -0.25, 0, 0.25, 0, 3.677616, -0.01666667, 0.13232763, 0.061111115, -0.48520127, -0.027557611, -0.061111115, 0.48520127, 0.016666671, -0.13232765, -0.027557611, -0.016666671, -0.23157342, 0.027777772, 0.3859555, 3.677616, -0.027777772, -0.617529, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.46666673, 0.5666667, 0.73333335)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BodyIKTarget:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(1.4067633, -0.25, 0, 0.25, 0, 1.4067633, -0.01666667, 0.00411313, 0.061111115, -0.015081475, 1.2379081, -0.061111115, 0, 0.038888898, 0, 1.4067633, -0.038888898, -0.028142532, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.46666667, 0.70000005)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyIKTarget:position:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2),
+"points": PackedFloat32Array(0.64055705, 0, 0, 0.07777778, -0.101656266, 0.030619442, -0.07777778, -0.0043312116, 0.038888887, 0.0021656055, 0.67953795, -0.038888887, -0.10815309, 0, 0),
+"times": PackedFloat32Array(0, 0.46666667, 0.7)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PaddleTargetR:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-0.15413725, 0, 0, 0.01666667, 0.047257077, 0.1294052, -0.01666667, -0.016299883, 0.061111115, 0.059766233, 0.30225945, -0.061111115, 0.014767901, 0.016666671, -0.00402761, 0.01663214, -0.016666671, 0.028524805, 0.027777772, -0.047541317, -0.15413725, -0.027777772, 0.028461566, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.4666667, 0.5666667, 0.73333335)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PaddleTargetR:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(3.677616, 0, 0, 0.01666667, 0, 3.677616, -0.01666667, 0.039625015, 0.061111122, -0.14529173, 2.5681155, -0.061111122, 0.14529175, 0.016666666, -0.03962501, 2.5681155, -0.016666666, -0.06934378, 0.027777772, 0.11557296, 3.677616, -0.027777772, -0.18491673, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.46666673, 0.5666667, 0.73333335)
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RowingSoundPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_yu1va")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/6/use_blend = true
+
+[sub_resource type="Animation" id="Animation_j38ec"]
+resource_name = "clockwise"
+length = 0.73333335
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaddleTargetL:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
+"points": PackedFloat32Array(-0.15413725, 0, 0, 0.01666667, 0.047257077, 0.1294052, -0.01666667, -0.016299883, 0.061111115, 0.059766233, 0.30225945, -0.061111115, 0.014767901, 0.016666671, -0.00402761, 0.01663214, -0.016666671, 0.028524805, 0.027777772, -0.047541317, -0.15413725, -0.027777772, 0.028461566, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.4666667, 0.5666667, 0.73333335)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleTargetL:position:z")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
+"points": PackedFloat32Array(3.677616, 0, 0, 0.01666667, 0, 3.677616, -0.01666667, 0.039625015, 0.061111122, -0.14529173, 2.5681155, -0.061111122, 0.14529175, 0.016666666, -0.03962501, 2.5681155, -0.016666666, -0.06934378, 0.027777772, 0.11557296, 3.677616, -0.027777772, -0.18491673, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.46666673, 0.5666667, 0.73333335)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BodyIKTarget:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(1.4067633, -0.25, 0, 0.25, 0, 1.4067633, -0.01666667, 0.00411313, 0.061111115, -0.015081475, 1.2379081, -0.061111115, 0, 0.038888898, 0, 1.4067633, -0.038888898, -0.028142532, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.46666667, 0.70000005)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyIKTarget:position:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2),
+"points": PackedFloat32Array(0.64055705, 0, 0, 0.07777778, -0.101656266, 0.030619442, -0.07777778, -0.0043312116, 0.038888887, 0.0021656055, 0.67953795, -0.038888887, -0.10815309, 0, 0),
+"times": PackedFloat32Array(0, 0.46666667, 0.7)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PaddleTargetR:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-0.15413702, 0, 0, 0.01666667, 0.18476515, 0.9544538, -0.01666667, -0.059480485, 0.06666666, 0.2379219, 1.6302773, -0.06666666, 0.14077798, 0.011111121, -0.023463018, 0.513535, -0.011111121, 0.08497217, 0.027777772, -0.21243021, -0.15413702, -0.027777772, 0.020524146, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.4666667, 0.5666667, 0.73333335)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PaddleTargetR:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(3.677616, -0.25, 0, 0.25, 0, 3.677616, -0.01666667, 0.13232763, 0.061111115, -0.48520127, -0.027557611, -0.061111115, 0.48520127, 0.016666671, -0.13232765, -0.027557611, -0.016666671, -0.23157342, 0.027777772, 0.3859555, 3.677616, -0.027777772, -0.617529, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.46666673, 0.5666667, 0.73333335)
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RowingSoundPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_yu1va")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/6/use_blend = true
+
+[sub_resource type="Animation" id="Animation_byod8"]
+resource_name = "forward"
+length = 0.73333335
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaddleTargetL:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-0.15413702, 0, 0, 0.01666667, 0.18476515, 0.9544538, -0.01666667, -0.059480485, 0.06666666, 0.2379219, 1.6302773, -0.06666666, 0.14077798, 0.011111121, -0.023463018, 0.513535, -0.011111121, 0.08497217, 0.027777772, -0.21243021, -0.15413702, -0.027777772, 0.020524146, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.4666667, 0.5666667, 0.73333335)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleTargetL:position:z")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0, 2, 2),
+"points": PackedFloat32Array(3.677616, 0, 0, 0.01666667, 0, 3.677616, -0.01666667, 0.13232763, 0.061111115, -0.48520127, -0.027557611, -0.061111115, 0.48520127, 0.016666671, -0.13232765, -0.027557611, -0.016666671, -0.23157342, 0.027777772, 0.3859555, 3.677616, -0.027777772, -0.617529, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.46666673, 0.5666667, 0.73333335)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BodyIKTarget:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(1.4067633, -0.25, 0, 0.25, 0, 1.4067633, -0.01666667, 0.00411313, 0.061111115, -0.015081475, 1.2379081, -0.061111115, 0, 0.038888898, 0, 1.4067633, -0.038888898, -0.028142532, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.46666667, 0.70000005)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyIKTarget:position:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.5816325, 0, 0, 0, 0, -0.9503032, -0.061111115, 0, 0.038888898, 0, 0.679538, -0.06666672, -0.12072897, 0, 0),
+"times": PackedFloat32Array(0, 0.46666667, 0.7)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PaddleTargetR:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-0.15413702, 0, 0, 0.01666667, 0.18476515, 0.9544538, -0.01666667, -0.059480485, 0.06666666, 0.2379219, 1.6302773, -0.06666666, 0.14077798, 0.011111121, -0.023463018, 0.513535, -0.011111121, 0.08497217, 0.027777772, -0.21243021, -0.15413702, -0.027777772, 0.020524146, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.4666667, 0.5666667, 0.73333335)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PaddleTargetR:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(3.677616, -0.25, 0, 0.25, 0, 3.677616, -0.01666667, 0.13232763, 0.061111115, -0.48520127, -0.027557611, -0.061111115, 0.48520127, 0.016666671, -0.13232765, -0.027557611, -0.016666671, -0.23157342, 0.027777772, 0.3859555, 3.677616, -0.027777772, -0.617529, 0, 0),
+"times": PackedFloat32Array(0, 0.10000001, 0.46666673, 0.5666667, 0.73333335)
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RowingSoundPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_yu1va")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/6/use_blend = true
+
+[sub_resource type="Animation" id="Animation_slgur"]
+resource_name = "idle"
+length = 1.0000033854875714
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaddleTargetL:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.030304313, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleTargetL:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.15413702, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleTargetL:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.677616, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PaddleTargetR:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.030304313, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PaddleTargetR:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.15413702, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PaddleTargetR:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.677616, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BodyIKTarget:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BodyIKTarget:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.4067633, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BodyIKTarget:position:z")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.5816325, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j38ec"]
+_data = {
+&"RESET": SubResource("Animation_6ekd3"),
+&"anticlockwise": SubResource("Animation_5cyyp"),
+&"clockwise": SubResource("Animation_j38ec"),
+&"forward": SubResource("Animation_byod8"),
+&"idle": SubResource("Animation_slgur")
+}
+
+[node name="Frog" type="Node3D" unique_id=507680623 node_paths=PackedStringArray("default_head_target")]
+script = ExtResource("1_j225e")
+default_head_target = NodePath("DefaultHeadTarget")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1271532965]
+libraries/ = SubResource("AnimationLibrary_j38ec")
+
+[node name="RowingSoundPlayer" type="AudioStreamPlayer3D" parent="." unique_id=451770859]
+
+[node name="frogga-nm2-rigged" parent="." unique_id=1309467056 instance=ExtResource("1_whe2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03961754, -0.015729606)
+
+[node name="BodyIK" type="CCDIK3D" parent="frogga-nm2-rigged/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1309467056, 107537214) index="4" unique_id=1312505700]
+setting_count = 1
+settings/0/target_node = NodePath("../../../../BodyIKTarget")
+settings/0/root_bone_name = "torso"
+settings/0/root_bone = 0
+settings/0/end_bone_name = "neck"
+settings/0/end_bone = 5
+settings/0/extend_end_bone = false
+settings/0/joint_count = 2
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = null
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
+
+[node name="TwoBoneIK" type="TwoBoneIK3D" parent="frogga-nm2-rigged/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1309467056, 107537214) index="5" unique_id=1558384391]
+setting_count = 4
+settings/0/target_node = NodePath("../../../../walnit-paddle/Armature/Skeleton3D/HandleL/TargetL")
+settings/0/pole_node = NodePath("../../../arm_pole_L")
+settings/0/root_bone_name = "arm1_l"
+settings/0/root_bone = 8
+settings/0/middle_bone_name = "arm2_l"
+settings/0/middle_bone = 9
+settings/0/pole_direction = 0
+settings/0/end_bone_name = "hand_l"
+settings/0/end_bone = 10
+settings/0/use_virtual_end = false
+settings/0/extend_end_bone = false
+settings/1/target_node = NodePath("../../../../walnit-paddle/Armature/Skeleton3D/HandleR/TargetR")
+settings/1/pole_node = NodePath("../../../arm_pole_R")
+settings/1/root_bone_name = "arm1_r"
+settings/1/root_bone = 2
+settings/1/middle_bone_name = "arm2_r"
+settings/1/middle_bone = 3
+settings/1/pole_direction = 0
+settings/1/end_bone_name = "hand_r"
+settings/1/end_bone = 4
+settings/1/use_virtual_end = false
+settings/1/extend_end_bone = false
+settings/2/target_node = NodePath("../../../../walnit-paddle/Armature/FootL")
+settings/2/pole_node = NodePath("../../../arm_pole_L")
+settings/2/root_bone_name = "leg1_l"
+settings/2/root_bone = 16
+settings/2/middle_bone_name = "leg2_l"
+settings/2/middle_bone = 17
+settings/2/pole_direction = 0
+settings/2/end_bone_name = "foot_l"
+settings/2/end_bone = 18
+settings/2/use_virtual_end = false
+settings/2/extend_end_bone = false
+settings/3/target_node = NodePath("../../../../walnit-paddle/Armature/FootR")
+settings/3/pole_node = NodePath("../../../arm_pole_R")
+settings/3/root_bone_name = "leg1_r"
+settings/3/root_bone = 12
+settings/3/middle_bone_name = "leg2_r"
+settings/3/middle_bone = 13
+settings/3/pole_direction = 0
+settings/3/end_bone_name = "foot_r"
+settings/3/end_bone = 14
+settings/3/use_virtual_end = false
+settings/3/extend_end_bone = false
+
+[node name="HeadIK" type="LookAtModifier3D" parent="frogga-nm2-rigged/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1309467056, 107537214) index="6" unique_id=61725613]
+target_node = NodePath("../../../../DefaultHeadTarget")
+bone_name = "head"
+bone = 6
+forward_axis = 2
+primary_rotation_axis = 0
+duration = 0.1
+use_angle_limitation = true
+symmetry_limitation = true
+primary_limit_angle = 2.0943952
+primary_damp_threshold = 1.0
+secondary_limit_angle = 1.2714723
+secondary_damp_threshold = 1.0
+
+[node name="arm_pole_L" type="Node3D" parent="frogga-nm2-rigged" unique_id=877644943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54222, 1.9987822, 0)
+
+[node name="arm_pole_R" type="Node3D" parent="frogga-nm2-rigged" unique_id=1899016637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.542, 1.999, 0)
+
+[node name="walnit-paddle" parent="." unique_id=435488472 instance=ExtResource("2_6ekd3")]
+transform = Transform3D(2.41253, 0, 0, 0, 2.41253, 0, 0, 0, 2.41253, 0, 0, 1.6425049)
+
+[node name="LookAt_L" type="LookAtModifier3D" parent="walnit-paddle/Armature/Skeleton3D" parent_id_path=PackedInt32Array(435488472, 683899320) index="1" unique_id=2116300333]
+transform = Transform3D(0.8322654, 0, 0, 0, 0.8322654, 0, 0, 0, 0.8322654, 0, 0, -0.38004953)
+target_node = NodePath("../../../../PaddleTargetL")
+bone_name = "paddle.L"
+bone = 0
+forward_axis = 2
+primary_rotation_axis = 0
+
+[node name="LookAt_R" type="LookAtModifier3D" parent="walnit-paddle/Armature/Skeleton3D" parent_id_path=PackedInt32Array(435488472, 683899320) index="2" unique_id=1587078886]
+transform = Transform3D(0.8322654, 0, 0, 0, 0.8322654, 0, 0, 0, 0.8322654, 0, 0, -0.38004953)
+target_node = NodePath("../../../../PaddleTargetR")
+bone_name = "paddle.R"
+bone = 2
+forward_axis = 2
+primary_rotation_axis = 0
+
+[node name="HandleL" type="BoneAttachment3D" parent="walnit-paddle/Armature/Skeleton3D" parent_id_path=PackedInt32Array(435488472, 683899320) index="3" unique_id=1557427201]
+transform = Transform3D(-0.11752115, 0.6609141, 0.7412025, 0.9876623, 1.2669602e-07, 0.1565984, 0.10349807, 0.7504615, -0.6527599, 0.72293085, 0.0915025, 0.19582796)
+bone_name = "handle.L"
+bone_idx = 1
+
+[node name="TargetL" type="Node3D" parent="walnit-paddle/Armature/Skeleton3D/HandleL" unique_id=134814147]
+transform = Transform3D(0.83226544, 0, 0, 0, 0.8322654, 0, 0, 0, 0.8322654, 0.071, 0, -0.2)
+
+[node name="HandleR" type="BoneAttachment3D" parent="walnit-paddle/Armature/Skeleton3D" parent_id_path=PackedInt32Array(435488472, 683899320) index="4" unique_id=594025845]
+transform = Transform3D(-0.117832184, -0.67076474, -0.73225003, -0.9872989, 1.5630923e-07, 0.15887399, -0.10656702, 0.7416702, -0.6622453, -0.7256166, 0.09081982, 0.19867358)
+bone_name = "handle.R"
+bone_idx = 3
+
+[node name="TargetR" type="Node3D" parent="walnit-paddle/Armature/Skeleton3D/HandleR" unique_id=63693093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.071, 0, -0.2)
+
+[node name="FootL" type="Node3D" parent="walnit-paddle/Armature" parent_id_path=PackedInt32Array(435488472, 1857190778) index="1" unique_id=1149423750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2323653, -0.36601713, -0.36251557)
+
+[node name="FootR" type="Node3D" parent="walnit-paddle/Armature" parent_id_path=PackedInt32Array(435488472, 1857190778) index="2" unique_id=2055989687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232, -0.36630994, -0.36276683)
+
+[node name="PaddleTargetL" type="Node3D" parent="." unique_id=220067098]
+transform = Transform3D(2.0078652, 0, 0, 0, 2.0078652, 0, 0, 0, 2.0078652, -0.030304313, 0.042417526, 0.53713775)
+
+[node name="PaddleTargetR" type="Node3D" parent="." unique_id=269537807]
+transform = Transform3D(2.0078652, 0, 0, 0, 2.0078652, 0, 0, 0, 2.0078652, -0.030304313, -0.15413702, 3.677616)
+
+[node name="BodyIKTarget" type="Node3D" parent="." unique_id=428809929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4067633, 1.0494573)
+
+[node name="DefaultHeadTarget" type="Node3D" parent="." unique_id=1120720337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.540696)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="frogga-nm2-rigged"]
+[editable path="walnit-paddle"]

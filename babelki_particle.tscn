@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://3hli74pd2x25"]
+
+[sub_resource type="Gradient" id="Gradient_ac4ux"]
+offsets = PackedFloat32Array(0, 0.0055710305, 0.3983287, 0.9415042)
+colors = PackedColorArray(0, 0, 0, 1, 0.2608063, 0.22998229, 0.11030013, 1, 0.21117955, 0.08570159, 0.016677113, 1, 0.96250015, 0.9197841, 0.95361024, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8od0w"]
+gradient = SubResource("Gradient_ac4ux")
+
+[sub_resource type="Curve" id="Curve_aebt7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5038961, 0.8626761), 0.0, 0.0, 0, 0, Vector2(0.7220779, 0.58148897), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(0.99999994, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_4hubk"]
+curve = SubResource("Curve_aebt7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3wtuk"]
+emission_shape_scale = Vector3(1, 0.02, 1)
+emission_shape = 1
+emission_sphere_radius = 16.03
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 61.279984
+gravity = Vector3(0, 0.325, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 3.7799976
+use_scale_3d = true
+scale_3d_min = Vector3(1, 1, 1)
+scale_3d_max = Vector3(1, 1, 1)
+scale_min = 0.19999999
+scale_max = 0.9
+scale_curve = SubResource("CurveTexture_4hubk")
+color_ramp = SubResource("GradientTexture1D_8od0w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8od0w"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.5715435, 0.4130443, 0.33756852, 0.6039216)
+
+[sub_resource type="SphereMesh" id="SphereMesh_aebt7"]
+material = SubResource("StandardMaterial3D_8od0w")
+height = 0.5
+
+[node name="BabelkiParticle" type="GPUParticles3D" unique_id=34073474]
+transparency = 0.32
+amount = 77
+lifetime = 0.73
+explosiveness = 0.14
+randomness = 0.25
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_3wtuk")
+draw_pass_1 = SubResource("SphereMesh_aebt7")

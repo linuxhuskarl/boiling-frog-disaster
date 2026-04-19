@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c5eegtngr4qwg"]
+
+[ext_resource type="Script" uid="uid://dvnc1ep4u1aaf" path="res://floating_body.gd" id="1_3ed3y"]
+[ext_resource type="Script" uid="uid://c0dsususytyb6" path="res://Food/interactible_component.gd" id="2_ma8cg"]
+[ext_resource type="PackedScene" uid="uid://wmft7u2ybiej" path="res://Assets/food_apple/food_apple_01_1k.gltf" id="3_qde4y"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_whgpf"]
+radius = 0.3
+
+[node name="Apple" type="RigidBody3D" unique_id=2144553780 node_paths=PackedStringArray("probe_container")]
+mass = 50.0
+script = ExtResource("1_3ed3y")
+probe_container = NodePath("Probes")
+max_depth = 0.15
+frontal_area = 0.15
+side_area = 0.15
+bottom_area = 0.25
+metadata/_custom_type_script = "uid://dvnc1ep4u1aaf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1927558426]
+shape = SubResource("SphereShape3D_whgpf")
+
+[node name="Probes" type="Node3D" parent="." unique_id=961351298]
+
+[node name="Marker3D" type="Marker3D" parent="Probes" unique_id=1912287565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -0.2)
+
+[node name="Marker3D2" type="Marker3D" parent="Probes" unique_id=377537155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0.2)
+
+[node name="Marker3D3" type="Marker3D" parent="Probes" unique_id=1312749588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, -0.2)
+
+[node name="Marker3D4" type="Marker3D" parent="Probes" unique_id=1976730097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
+
+[node name="food_apple_01_1k" parent="." unique_id=1804163420 instance=ExtResource("3_qde4y")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, -0.21264112, 0)
+
+[node name="InteractibleComponent" type="Node3D" parent="." unique_id=923611890 node_paths=PackedStringArray("mesh")]
+script = ExtResource("2_ma8cg")
+mesh = NodePath("../food_apple_01_1k/food_apple_01")
+
+[editable path="food_apple_01_1k"]

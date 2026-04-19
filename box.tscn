@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c1gcpykcvpnhj"]
+
+[ext_resource type="Script" uid="uid://dvnc1ep4u1aaf" path="res://floating_body.gd" id="1_g2tbl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fvag4"]
+size = Vector3(0.5, 0.3, 0.5)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g2tbl"]
+size = Vector2(256, 256)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oq5cr"]
+albedo_texture = SubResource("PlaceholderTexture2D_g2tbl")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kva58"]
+size = Vector3(0.5, 0.3, 0.5)
+
+[node name="Box" type="RigidBody3D" unique_id=2144553780 node_paths=PackedStringArray("probe_container")]
+mass = 50.0
+script = ExtResource("1_g2tbl")
+volume = 0.075
+max_depth = 0.15
+probe_container = NodePath("Probes")
+frontal_area = 0.15
+side_area = 0.15
+bottom_area = 0.25
+metadata/_custom_type_script = "uid://dvnc1ep4u1aaf"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=79482666]
+mesh = SubResource("BoxMesh_fvag4")
+surface_material_override/0 = SubResource("StandardMaterial3D_oq5cr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1927558426]
+shape = SubResource("BoxShape3D_kva58")
+
+[node name="Probes" type="Node3D" parent="." unique_id=961351298]
+
+[node name="Marker3D" type="Marker3D" parent="Probes" unique_id=1912287565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, -0.2)
+
+[node name="Marker3D2" type="Marker3D" parent="Probes" unique_id=377537155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0.2)
+
+[node name="Marker3D3" type="Marker3D" parent="Probes" unique_id=1312749588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, -0.2)
+
+[node name="Marker3D4" type="Marker3D" parent="Probes" unique_id=1976730097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)

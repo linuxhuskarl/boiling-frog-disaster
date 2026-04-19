@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cedc71d4wk8vt"]
+
+[ext_resource type="Texture2D" uid="uid://dh5ssxvko7oap" path="res://smoke_01.png" id="1_e75dr"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8od0w"]
+lifetime_randomness = 0.12
+emission_shape_scale = Vector3(14.12, 1, 14.685)
+emission_shape = 1
+emission_sphere_radius = 1.0
+use_rotation_3d = true
+rotation_3d_min = Vector3(0.085, 0.32, 0.1)
+rotation_3d_max = Vector3(0.085, 0.32, 0.255)
+inherit_velocity_ratio = 0.044
+spread = 21.059
+flatness = 0.365
+initial_velocity_min = 0.19999999
+initial_velocity_max = 0.56
+angular_velocity_min = -47.210014
+angular_velocity_max = 81.69998
+gravity = Vector3(0, 1.71, 0)
+scale_over_velocity_max = 44.92
+color = Color(0.8132577, 0.8132577, 0.81325763, 0.078431375)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aebt7"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.47058824)
+albedo_texture = ExtResource("1_e75dr")
+albedo_texture_force_srgb = true
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_4hubk"]
+material = SubResource("StandardMaterial3D_aebt7")
+size = Vector2(20, 20)
+
+[node name="DymParticle" type="GPUParticles3D" unique_id=1772102421]
+amount = 50
+lifetime = 2.9299999999999997
+explosiveness = 0.3
+randomness = 0.43
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_8od0w")
+draw_pass_1 = SubResource("QuadMesh_4hubk")

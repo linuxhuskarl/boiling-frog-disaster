@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bfdxg6fard5js"]
+
+[ext_resource type="Shader" uid="uid://no5xqibleay3" path="res://Zaznaczacz.gdshader" id="1_tpjdw"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_tpjdw")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/cycle_interval = 5.0
+shader_parameter/shine_speed = 1.8100000384750001
+shader_parameter/shine_width = 19.0290008563775

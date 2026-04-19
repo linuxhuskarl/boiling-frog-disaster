@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d3b08cv48riot"]
+
+[ext_resource type="Script" uid="uid://jw400hdt2keh" path="res://splash_sound_component.gd" id="1_7rqqo"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7rqqo"]
+random_pitch = 1.0594631
+streams_count = 1
+
+[node name="SplashSoundComponent" type="AudioStreamPlayer3D" unique_id=1817793077]
+stream = SubResource("AudioStreamRandomizer_7rqqo")
+script = ExtResource("1_7rqqo")
