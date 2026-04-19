@@ -32,13 +32,13 @@
 [ext_resource type="Script" uid="uid://dhx80uhnm0qw" path="res://s_baba_jaga.gd" id="14_cm22m"]
 [ext_resource type="Script" uid="uid://c08082vhbmiva" path="res://didaskalia.gd" id="17_277tw"]
 [ext_resource type="FontFile" uid="uid://cux3q6lpuum02" path="res://sounds/NOTSOUNDS/Cinzel Family/Cinzel/Cinzel-Black.otf" id="17_m6enp"]
-[ext_resource type="AudioStream" uid="uid://cm6ff6dtrwqmh" path="res://sounds/BabaJaga/Lapa/Lapa1.ogg" id="20_8ueeb"]
+[ext_resource type="AudioStream" uid="uid://57452l3rdktt" path="res://sounds/BabaJaga/Lapa/Lapa1.ogg" id="20_8ueeb"]
 [ext_resource type="PackedScene" uid="uid://3hli74pd2x25" path="res://babelki_particle.tscn" id="20_aebt7"]
 [ext_resource type="Script" uid="uid://daxm5mn3ha4bh" path="res://s_lapa.gd" id="20_r7aml"]
 [ext_resource type="PackedScene" uid="uid://cedc71d4wk8vt" path="res://dym_particle.tscn" id="21_4hubk"]
-[ext_resource type="AudioStream" uid="uid://rn6vwsnwug1m" path="res://sounds/BabaJaga/Lapa/Lapa2.ogg" id="21_n8bq3"]
-[ext_resource type="AudioStream" uid="uid://bihib5mclyjw6" path="res://sounds/BabaJaga/Lapa/Lapa3.ogg" id="22_ubrj5"]
-[ext_resource type="AudioStream" uid="uid://cwkc3fyj418jm" path="res://sounds/BabaJaga/Lapa/Lapa4.ogg" id="23_7f74w"]
+[ext_resource type="AudioStream" uid="uid://eljlm8itlrlh" path="res://sounds/BabaJaga/Lapa/Lapa2.ogg" id="21_n8bq3"]
+[ext_resource type="AudioStream" uid="uid://by4kwu2p2hi7c" path="res://sounds/BabaJaga/Lapa/Lapa3.ogg" id="22_ubrj5"]
+[ext_resource type="AudioStream" uid="uid://dulkr73yu1bxc" path="res://sounds/BabaJaga/Lapa/Lapa4.ogg" id="23_7f74w"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="23_fq6f0"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="24_cdct0"]
 [ext_resource type="AudioStream" uid="uid://nv8dt77calty" path="res://sounds/PlumSounds/Plum1.ogg" id="26_cm22m"]
@@ -173,7 +173,7 @@ stream_6/stream = ExtResource("12_5g6i1")
 stream_7/stream = ExtResource("13_if8tu")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qbabk"]
-random_pitch = 1.1178681
+random_pitch = 1.0704741
 streams_count = 4
 stream_0/stream = ExtResource("20_8ueeb")
 stream_1/stream = ExtResource("21_n8bq3")
@@ -248,7 +248,7 @@ shader_parameter/wave_time_scale_a = 0.05
 shader_parameter/wave_time_scale_b = 0.08
 shader_parameter/wave_height_scale = 0.5
 shader_parameter/wave_normal_flatness = 36.80000054836416
-shader_parameter/wave_time = 452.4894106666672
+shader_parameter/wave_time = 169.29063433333317
 shader_parameter/surface_normals_a = SubResource("NoiseTexture2D_bcpi7")
 shader_parameter/surface_normals_b = SubResource("NoiseTexture2D_r4a3k")
 shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0.2)
@@ -524,7 +524,8 @@ script = ExtResource("17_277tw")
 
 [node name="S_Lapa" type="AudioStreamPlayer3D" parent="Camera3D" unique_id=1532613572]
 stream = SubResource("AudioStreamRandomizer_qbabk")
-volume_db = -10.042
+volume_db = 1.186
+bus = &"SFX"
 script = ExtResource("20_r7aml")
 
 [node name="Water" type="Node3D" parent="." unique_id=1787143191 groups=["water"]]

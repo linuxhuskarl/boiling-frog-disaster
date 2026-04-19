@@ -1,7 +1,5 @@
 extends AudioStreamPlayer3D
 
-signal damage_voice_started
-signal damage_voice_finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,13 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_baba_yaga_baba_hurt() -> void:
-	damage_voice_started.emit()
+func _on_baba_hand_hand_animation() -> void:
 	play()
-	damage_voice_finished.emit()
-
-
-func _on_baba_yaga_game_over() -> void:
-	damage_voice_started.emit()
-	play()
-	damage_voice_finished.emit()
