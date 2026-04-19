@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dk843ir5h400r"]
 
+[ext_resource type="Script" uid="uid://c2g7pv7n3c720" path="res://game_manager.gd" id="1_b111b"]
 [ext_resource type="Texture2D" uid="uid://hbf0fvg7sw5k" path="res://Assets/brass_pot_02/brass_pot_02_diff_1k.jpg" id="1_etbpp"]
 [ext_resource type="AudioStream" uid="uid://cedjmuoxwpm54" path="res://sounds/Music/Intro.ogg" id="2_fwiys"]
 [ext_resource type="Texture2D" uid="uid://bs548p4kcmi0l" path="res://Assets/brass_pot_02/brass_pot_02_arm_1k.jpg" id="2_nname"]
@@ -53,6 +54,7 @@
 [ext_resource type="Script" uid="uid://cgrc8h66lsphi" path="res://s_pulling.gd" id="40_gbwty"]
 [ext_resource type="PackedScene" uid="uid://d1njdl5prxtpg" path="res://baba_yaga.tscn" id="43_oqoeq"]
 [ext_resource type="PackedScene" uid="uid://bwi2me2jmhhll" path="res://background.tscn" id="44_sqkwa"]
+[ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="52_n3xam"]
 [ext_resource type="AudioStream" uid="uid://cr5t3kv05webx" path="res://sounds/Extra/BabgaJabga/CzytoWszystko.ogg" id="52_teu7r"]
 [ext_resource type="AudioStream" uid="uid://bjxvtaovsqwyx" path="res://sounds/Extra/BabgaJabga/TyPieronie.ogg" id="53_b111b"]
 [ext_resource type="Script" uid="uid://do66wqi4i2j7t" path="res://baba_ranna.gd" id="54_n3xam"]
@@ -87,20 +89,17 @@ clip_0/auto_advance = 1
 clip_0/next_clip = 1
 clip_1/name = &"Calm"
 clip_1/stream = ExtResource("3_277tw")
-clip_1/auto_advance = 1
-clip_1/next_clip = 2
+clip_1/auto_advance = 0
 clip_2/name = &"Calm Transition To Action"
 clip_2/stream = ExtResource("4_fwiys")
 clip_2/auto_advance = 1
 clip_2/next_clip = 3
 clip_3/name = &"Action 1"
 clip_3/stream = ExtResource("5_m6enp")
-clip_3/auto_advance = 1
-clip_3/next_clip = 4
+clip_3/auto_advance = 0
 clip_4/name = &"Action 2"
 clip_4/stream = ExtResource("6_277tw")
-clip_4/auto_advance = 1
-clip_4/next_clip = 1
+clip_4/auto_advance = 0
 _transitions = {
 Vector2i(0, 1): {
 "fade_beats": 1.0,
@@ -226,7 +225,7 @@ shader_parameter/wave_time_scale_a = 0.05
 shader_parameter/wave_time_scale_b = 0.08
 shader_parameter/wave_height_scale = 0.5
 shader_parameter/wave_normal_flatness = 36.80000054836416
-shader_parameter/wave_time = 1265.3277719999942
+shader_parameter/wave_time = 321.9965969999987
 shader_parameter/surface_normals_a = SubResource("NoiseTexture2D_bcpi7")
 shader_parameter/surface_normals_b = SubResource("NoiseTexture2D_r4a3k")
 shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0.2)
@@ -421,6 +420,12 @@ data = PackedVector3Array(-0.0023, 0.0047, -0.043399997, -0.0007, 0.0056, -0.033
 [sub_resource type="Resource" id="Resource_t0tu2"]
 script = ExtResource("24_cdct0")
 
+[sub_resource type="Resource" id="Resource_ld3be"]
+script = ExtResource("52_n3xam")
+amplitude = 0.0
+frequency = 1.0
+metadata/_custom_type_script = "uid://cuffvge5ad4aa"
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_65rgv"]
 streams_count = 2
 stream_0/stream = ExtResource("52_teu7r")
@@ -431,6 +436,9 @@ streams_count = 1
 stream_0/stream = ExtResource("55_ld3be")
 
 [node name="TestWorld" type="Node3D" unique_id=1328284762]
+
+[node name="GameManager" type="Node3D" parent="." unique_id=239651079]
+script = ExtResource("1_b111b")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=420497208]
 environment = SubResource("Environment_covli")
@@ -444,7 +452,7 @@ shadow_blur = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1278554854]
 physics_interpolation_mode = 1
-transform = Transform3D(0.021302095, 0.29921854, -0.95394623, -4.380939e-06, 0.95416296, 0.29928634, 0.9997726, -0.0063712127, 0.02032696, -22.224564, 11.22849, 0)
+transform = Transform3D(0.0212996, 0.29927427, -0.9539294, -4.0978193e-06, 0.9541459, 0.29934207, 0.99977314, -0.006371958, 0.020324154, -22.224564, 11.22849, 0)
 top_level = true
 attributes = SubResource("CameraAttributesPractical_aebt7")
 current = true
@@ -585,16 +593,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327734, -0.51250935)
 [node name="DymParticle" parent="." unique_id=1772102421 instance=ExtResource("21_4hubk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6670103, 0.89956, 0)
 
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1207189560 node_paths=PackedStringArray("look_at_targets")]
-transform = Transform3D(0.021302095, 0.29921854, -0.95394623, -4.380939e-06, 0.95416296, 0.29928634, 0.9997726, -0.0063712127, 0.02032696, -22.224564, 11.22849, 0)
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1207189560]
+transform = Transform3D(0.021299591, 0.29927415, -0.9539289, -4.0978175e-06, 0.9541455, 0.29934192, 0.99977267, -0.0063719726, 0.02032416, -22.224564, 11.22849, 0)
 script = ExtResource("23_fq6f0")
 look_at_mode = 3
-look_at_targets = [NodePath("../RowBoat"), NodePath("../Srodek")]
 tween_resource = SubResource("Resource_t0tu2")
 look_at_offset = Vector3(0, 2, 0)
 look_at_damping = true
-align_transform_with_view = Callable()
-align_rotation_with_view = Callable()
+noise = SubResource("Resource_ld3be")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="BabaYaga" parent="." unique_id=276386204 instance=ExtResource("43_oqoeq")]
