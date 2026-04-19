@@ -32,8 +32,13 @@
 [ext_resource type="Script" uid="uid://dhx80uhnm0qw" path="res://s_baba_jaga.gd" id="14_cm22m"]
 [ext_resource type="Script" uid="uid://c08082vhbmiva" path="res://didaskalia.gd" id="17_277tw"]
 [ext_resource type="FontFile" uid="uid://cux3q6lpuum02" path="res://sounds/NOTSOUNDS/Cinzel Family/Cinzel/Cinzel-Black.otf" id="17_m6enp"]
+[ext_resource type="AudioStream" uid="uid://cm6ff6dtrwqmh" path="res://sounds/BabaJaga/Lapa/Lapa1.ogg" id="20_8ueeb"]
 [ext_resource type="PackedScene" uid="uid://3hli74pd2x25" path="res://babelki_particle.tscn" id="20_aebt7"]
+[ext_resource type="Script" uid="uid://daxm5mn3ha4bh" path="res://s_lapa.gd" id="20_r7aml"]
 [ext_resource type="PackedScene" uid="uid://cedc71d4wk8vt" path="res://dym_particle.tscn" id="21_4hubk"]
+[ext_resource type="AudioStream" uid="uid://rn6vwsnwug1m" path="res://sounds/BabaJaga/Lapa/Lapa2.ogg" id="21_n8bq3"]
+[ext_resource type="AudioStream" uid="uid://bihib5mclyjw6" path="res://sounds/BabaJaga/Lapa/Lapa3.ogg" id="22_ubrj5"]
+[ext_resource type="AudioStream" uid="uid://cwkc3fyj418jm" path="res://sounds/BabaJaga/Lapa/Lapa4.ogg" id="23_7f74w"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="23_fq6f0"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="24_cdct0"]
 [ext_resource type="AudioStream" uid="uid://nv8dt77calty" path="res://sounds/PlumSounds/Plum1.ogg" id="26_cm22m"]
@@ -62,8 +67,8 @@
 [ext_resource type="Script" uid="uid://brre3gfejomyf" path="res://baba_smierc.gd" id="56_xe3m5"]
 [ext_resource type="AudioStream" uid="uid://cbgtompu1q5fx" path="res://sounds/Extra/Explosion/Explosion1.ogg" id="59_65rgv"]
 [ext_resource type="AudioStream" uid="uid://dk41relrg3udf" path="res://sounds/Extra/Explosion/Explosion2.ogg" id="60_aclwq"]
-[ext_resource type="Script" uid="uid://dyqsxhul6i7xc" path="res://wybuchy.gd" id="61_r7aml"]
 [ext_resource type="PackedScene" uid="uid://bbkwortyy8qmo" path="res://baba_hand.tscn" id="61_ld3be"]
+[ext_resource type="Script" uid="uid://dyqsxhul6i7xc" path="res://wybuchy.gd" id="61_r7aml"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0dbrq"]
 sky_top_color = Color(0.63784295, 0.6378433, 0.63784295, 1)
@@ -167,6 +172,14 @@ stream_5/stream = ExtResource("11_jbi20")
 stream_6/stream = ExtResource("12_5g6i1")
 stream_7/stream = ExtResource("13_if8tu")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qbabk"]
+random_pitch = 1.1178681
+streams_count = 4
+stream_0/stream = ExtResource("20_8ueeb")
+stream_1/stream = ExtResource("21_n8bq3")
+stream_2/stream = ExtResource("22_ubrj5")
+stream_3/stream = ExtResource("23_7f74w")
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_6ks3i"]
 size = Vector2(52, 52)
 subdivide_width = 100
@@ -235,7 +248,7 @@ shader_parameter/wave_time_scale_a = 0.05
 shader_parameter/wave_time_scale_b = 0.08
 shader_parameter/wave_height_scale = 0.5
 shader_parameter/wave_normal_flatness = 36.80000054836416
-shader_parameter/wave_time = 792.6558019999926
+shader_parameter/wave_time = 452.4894106666672
 shader_parameter/surface_normals_a = SubResource("NoiseTexture2D_bcpi7")
 shader_parameter/surface_normals_b = SubResource("NoiseTexture2D_r4a3k")
 shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0.2)
@@ -467,7 +480,8 @@ shadow_enabled = true
 shadow_blur = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1278554854]
-transform = Transform3D(0.0212996, 0.29927427, -0.9539294, -4.0978193e-06, 0.9541459, 0.29934207, 0.99977314, -0.006371958, 0.020324154, -22.224564, 11.22849, 0)
+physics_interpolation_mode = 1
+transform = Transform3D(0.021232545, 0.3007652, -0.9534619, -7.927418e-06, 0.95367694, 0.3008328, 0.9997746, -0.0063798884, 0.020251371, -22.224564, 11.22849, 0)
 top_level = true
 attributes = SubResource("CameraAttributesPractical_aebt7")
 current = true
@@ -507,6 +521,11 @@ font = ExtResource("17_m6enp")
 font_size = 64
 width = 504.89
 script = ExtResource("17_277tw")
+
+[node name="S_Lapa" type="AudioStreamPlayer3D" parent="Camera3D" unique_id=1532613572]
+stream = SubResource("AudioStreamRandomizer_qbabk")
+volume_db = -10.042
+script = ExtResource("20_r7aml")
 
 [node name="Water" type="Node3D" parent="." unique_id=1787143191 groups=["water"]]
 script = ExtResource("4_rvuv0")
@@ -609,7 +628,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327734, -0.51250935)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6670103, 0.89956, 0)
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1207189560 node_paths=PackedStringArray("look_at_targets")]
-transform = Transform3D(0.02097963, 0.30570576, -0.9518942, -6.231662e-05, 0.9521044, 0.30577174, 0.99977934, -0.0063557, 0.019993886, -22.224564, 11.22849, 0)
+transform = Transform3D(0.021232532, 0.30076504, -0.9534613, -7.927413e-06, 0.95367646, 0.3008326, 0.999774, -0.0063798847, 0.02025138, -22.224564, 11.22849, 0)
 script = ExtResource("23_fq6f0")
 look_at_mode = 3
 look_at_targets = [NodePath("../Srodek"), NodePath("../RowBoat")]
@@ -634,7 +653,7 @@ script = ExtResource("54_n3xam")
 
 [node name="BabaSmierc" type="AudioStreamPlayer3D" parent="BabaYaga" unique_id=1222305100]
 stream = SubResource("AudioStreamRandomizer_aclwq")
-volume_db = 4.912
+volume_db = 6.316
 script = ExtResource("56_xe3m5")
 
 [node name="Wybuchy" type="AudioStreamPlayer3D" parent="BabaYaga" unique_id=1955164601]
@@ -661,5 +680,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21440601, -8.182022, -0.25
 [connection signal="baba_hurt" from="BabaYaga" to="BabaYaga/Wybuchy" method="_on_baba_yaga_baba_hurt"]
 [connection signal="game_over" from="BabaYaga" to="BabaYaga/BabaSmierc" method="_on_baba_yaga_game_over"]
 [connection signal="game_over" from="BabaYaga" to="BabaYaga/Wybuchy" method="_on_baba_yaga_game_over"]
+[connection signal="damage_voice_finished" from="BabaYaga/Wybuchy" to="Camera3D/S_BabaJaga" method="_on_wybuchy_damage_voice_finished"]
+[connection signal="damage_voice_started" from="BabaYaga/Wybuchy" to="Camera3D/S_BabaJaga" method="_on_wybuchy_damage_voice_started"]
+[connection signal="hand_animation" from="BabaHand" to="Camera3D/S_Lapa" method="_on_baba_hand_hand_animation"]
 
 [editable path="BabaYaga"]

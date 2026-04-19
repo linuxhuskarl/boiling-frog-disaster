@@ -3,6 +3,8 @@ extends AudioStreamPlayer3D
 @onready var timer = $Timer
 @onready var subtitle = $"../Didaskalia" 
 
+var damage_voice_playing := false
+
 var sounds = [
 	{ "stream": preload("res://sounds/BabaJaga/Aaaaahhhh.ogg"), "text": "Baba Yaga: Aaaaahhhh" },
 	{ "stream": preload("res://sounds/BabaJaga/ChodzDoMamy.ogg"), "text": "Baba Yaga: Come to mommy" },
@@ -24,7 +26,7 @@ func _ready():
 
 
 func _on_timer_timeout():
-	if not playing:
+	if not playing and not damage_voice_playing:
 
 		var i = randi() % sounds.size()
 
@@ -52,3 +54,11 @@ func _set_next_time():
 		timer.wait_time = randf_range(8.0, 14.0)
 
 	timer.start()
+
+
+func _on_wybuchy_damage_voice_finished() -> void:
+	damage_voice_playing = false
+
+
+func _on_wybuchy_damage_voice_started() -> void:
+	damage_voice_playing = true
