@@ -153,7 +153,7 @@ shader_parameter/wave_time_scale_a = 0.05
 shader_parameter/wave_time_scale_b = 0.08
 shader_parameter/wave_height_scale = 0.5
 shader_parameter/wave_normal_flatness = 36.80000054836416
-shader_parameter/wave_time = 27.561513999999992
+shader_parameter/wave_time = 256.1525686666674
 shader_parameter/surface_normals_a = SubResource("NoiseTexture2D_bcpi7")
 shader_parameter/surface_normals_b = SubResource("NoiseTexture2D_r4a3k")
 shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0.2)
@@ -378,7 +378,9 @@ shadow_enabled = true
 shadow_blur = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1278554854]
-transform = Transform3D(0.025769653, 0.411937, -0.9108479, 8.0466276e-07, 0.91115046, 0.41207388, 0.99966794, -0.010619733, 0.0234797, -19.409569, 7.9432764, 0)
+physics_interpolation_mode = 1
+transform = Transform3D(0.023206651, 0.3238474, -0.9458247, -2.9802322e-08, 0.9460795, 0.32393464, 0.99973065, -0.0075173974, 0.02195537, -20.895754, 11.22849, 0)
+top_level = true
 attributes = SubResource("CameraAttributesPractical_aebt7")
 current = true
 fov = 60.0
@@ -476,12 +478,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327734, -0.51250935)
 [node name="DymParticle" parent="." unique_id=1772102421 instance=ExtResource("21_4hubk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6670103, 0.89956, 0)
 
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=762409508 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.025769651, 0.41193697, -0.9108479, 8.046627e-07, 0.9111504, 0.41207385, 0.9996679, -0.010619729, 0.0234797, -19.409569, 7.9432764, 0)
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1207189560 node_paths=PackedStringArray("look_at_targets")]
+transform = Transform3D(0.023206642, 0.3238473, -0.94582415, -2.980231e-08, 0.94607913, 0.32393447, 0.9997302, -0.0075173946, 0.021955358, -20.895754, 11.22849, 0)
 script = ExtResource("23_fq6f0")
 look_at_mode = 3
-look_at_target = NodePath("../RowBoat")
+look_at_targets = [NodePath("../Srodek"), NodePath("../RowBoat")]
 tween_resource = SubResource("Resource_t0tu2")
 look_at_offset = Vector3(0, 2, 0)
 look_at_damping = true
+align_transform_with_view = Callable()
+align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
