@@ -55,7 +55,6 @@
 [ext_resource type="AudioStream" uid="uid://cmx7n70mch8r2" path="res://sounds/Frog/Wciaganie/Wciaganie2.ogg" id="37_jxwsd"]
 [ext_resource type="AudioStream" uid="uid://dd1ah346cleor" path="res://sounds/Frog/Wciaganie/Wciaganie3.ogg" id="38_42u3y"]
 [ext_resource type="AudioStream" uid="uid://bdbaomges6umr" path="res://sounds/Frog/Wciaganie/Wciaganie4.ogg" id="39_mp66g"]
-[ext_resource type="PackedScene" uid="uid://dduervr7vihuf" path="res://Food/eyeball.tscn" id="39_rl2ho"]
 [ext_resource type="Script" uid="uid://cgrc8h66lsphi" path="res://s_pulling.gd" id="40_gbwty"]
 [ext_resource type="PackedScene" uid="uid://d1njdl5prxtpg" path="res://baba_yaga.tscn" id="43_oqoeq"]
 [ext_resource type="PackedScene" uid="uid://bwi2me2jmhhll" path="res://background.tscn" id="44_sqkwa"]
@@ -69,6 +68,14 @@
 [ext_resource type="AudioStream" uid="uid://dk41relrg3udf" path="res://sounds/Extra/Explosion/Explosion2.ogg" id="60_aclwq"]
 [ext_resource type="PackedScene" uid="uid://bbkwortyy8qmo" path="res://baba_hand.tscn" id="61_ld3be"]
 [ext_resource type="Script" uid="uid://dyqsxhul6i7xc" path="res://wybuchy.gd" id="61_r7aml"]
+
+[sub_resource type="Curve3D" id="Curve3D_aclwq"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 7.8358173, -1.649746, -4.8550777, 0, 0, 0, 0, 0, 0, 0.03138542, -6.9207325, -9.924064, 0, 0, 0, 0, 0, 0, -8.511668, -3.2759018, -5.686202, 0, 0, 0, 0, 0, 0, -7.7302895, -8.180059, 5.8007865, 0, 0, 0, 0, 0, 0, -0.6011543, -0.63378143, 9.350153, 0, 0, 0, 0, 0, 0, 9.508467, -5.9636097, 5.396409),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0dbrq"]
 sky_top_color = Color(0.63784295, 0.6378433, 0.63784295, 1)
@@ -466,14 +473,24 @@ stream_1/stream = ExtResource("60_aclwq")
 
 [node name="TestWorld" type="Node3D" unique_id=1328284762]
 
+[node name="Path3D" type="Path3D" parent="." unique_id=730048770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.327541, 0)
+curve = SubResource("Curve3D_aclwq")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1271216997]
+transform = Transform3D(0.5446934, -0.41330943, 0.7297131, -4.470343e-08, 0.87011975, 0.49283624, -0.8386338, -0.2684449, 0.47394925, 7.8358173, -1.649746, -4.8550777)
+
 [node name="GameManager" type="Node3D" parent="." unique_id=239651079]
 script = ExtResource("1_b111b")
+
+[node name="HandTimer" type="Timer" parent="GameManager" unique_id=1517209060]
+wait_time = 5.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=420497208]
 environment = SubResource("Environment_covli")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1248395489]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.7637089, 0.559072, -0.32278037, 2.780595e-08, 0.49999994, 0.86602545, 0.6455608, 0.66139126, -0.38185441, -32.325317, 0, -26.194275)
 light_color = Color(1, 0.9025, 0.85, 1)
 light_energy = 0.751
 shadow_enabled = true
@@ -597,47 +614,27 @@ shape = SubResource("ConcavePolygonShape3D_oqoeq")
 [node name="Onion" parent="Food" unique_id=2144553780 instance=ExtResource("8_m24rg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.185996, 0.8767235, 2.284152)
 
-[node name="Onion2" parent="Food" unique_id=1331100925 instance=ExtResource("8_m24rg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8255725, 0, -0.4443574)
-
-[node name="Onion3" parent="Food" unique_id=1911694889 instance=ExtResource("8_m24rg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.673341, 0, 0.9493265)
-
 [node name="Potato" parent="Food" unique_id=1016808555 instance=ExtResource("9_u5l0w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.041072, 0, -1.2523127)
 
-[node name="Potato2" parent="Food" unique_id=1987579300 instance=ExtResource("9_u5l0w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9189343, 0.82231784, 3.3085341)
-
-[node name="Potato3" parent="Food" unique_id=1130252951 instance=ExtResource("9_u5l0w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.498398, 0, -2.7292738)
-
 [node name="Apple" parent="Food" unique_id=352497899 instance=ExtResource("10_k2fni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.336815, 1.2680092, 2.5948644)
-
-[node name="Apple2" parent="Food" unique_id=1956178240 instance=ExtResource("10_k2fni")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.949266, 0, 1.6389923)
-
-[node name="Apple3" parent="Food" unique_id=314376189 instance=ExtResource("10_k2fni")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9690137, 1.465085, 4.72287)
 
 [node name="BabelkiParticle" parent="." unique_id=34073474 instance=ExtResource("20_aebt7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327734, -0.51250935)
 
 [node name="DymParticle" parent="." unique_id=1772102421 instance=ExtResource("21_4hubk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6670103, 0.89956, 0)
+visible = false
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1207189560 node_paths=PackedStringArray("look_at_targets")]
 transform = Transform3D(0.021232532, 0.30076504, -0.9534613, -7.927413e-06, 0.95367646, 0.3008326, 0.999774, -0.0063798847, 0.02025138, -22.224564, 11.22849, 0)
 script = ExtResource("23_fq6f0")
 look_at_mode = 3
-look_at_targets = [NodePath("../Srodek"), NodePath("../RowBoat")]
 tween_resource = SubResource("Resource_t0tu2")
 look_at_offset = Vector3(0, 2, 0)
 look_at_damping = true
 noise = SubResource("Resource_ld3be")
-align_transform_with_view = Callable()
-align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="BabaYaga" parent="." unique_id=276386204 instance=ExtResource("43_oqoeq")]
@@ -664,12 +661,10 @@ script = ExtResource("61_r7aml")
 [node name="BG" parent="." unique_id=1261845884 instance=ExtResource("44_sqkwa")]
 transform = Transform3D(0.0147245135, 0, -0.9998916, 0, 1, 0, 0.9998916, 0, 0.0147245135, 35.13591, -63.451035, 0)
 
-[node name="Eyeball" parent="." unique_id=939492289 instance=ExtResource("39_rl2ho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6458511, 1.9836197, 6.054784)
-
 [node name="BabaHand" parent="." unique_id=1395648150 instance=ExtResource("61_ld3be")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21440601, -8.182022, -0.2579999)
 
+[connection signal="timeout" from="GameManager/HandTimer" to="GameManager" method="_on_hand_timer_timeout"]
 [connection signal="timeout" from="Camera3D/S_BabaJaga/Timer" to="Camera3D/S_BabaJaga" method="_on_timer_timeout"]
 [connection signal="timeout" from="Camera3D/S_BabaJaga/Timer" to="Camera3D/Didaskalia" method="_on_timer_timeout"]
 [connection signal="blep_sound" from="RowBoat" to="RowBoat/S_Blep" method="_on_row_boat_blep_sound"]

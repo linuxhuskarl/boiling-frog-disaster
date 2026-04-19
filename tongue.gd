@@ -42,4 +42,7 @@ func update_path(progress: float) -> Vector3:
 	return tip
 	
 func update_path_2(progress: float) -> void:
-	target.global_position = update_path(progress)
+	if target as FoodItem:
+		target.global_position = update_path(progress)
+	else:
+		update_path(progress)

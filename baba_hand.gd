@@ -1,3 +1,4 @@
+class_name BabaHand
 extends Node3D
 
 @onready var baba_hand: MeshInstance3D = $BabaHand
