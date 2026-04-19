@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d1njdl5prxtpg"]
 
 [ext_resource type="Texture2D" uid="uid://dsgrti117va3v" path="res://DigiPaint/Jaga.png" id="1_sr88s"]
+[ext_resource type="Script" uid="uid://c0dsususytyb6" path="res://Food/interactible_component.gd" id="2_773l5"]
+[ext_resource type="Script" uid="uid://be5c2xdd2n8xk" path="res://baba_yaga.gd" id="2_tmbxk"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_cm22m"]
 size = Vector2(192, 108)
@@ -17,7 +19,18 @@ billboard_mode = 1
 stencil_mode = 3
 stencil_flags = 2
 
-[node name="BabaYaga" type="MeshInstance3D" unique_id=276386204]
+[node name="BabaYaga" type="Node3D" unique_id=1395648150 groups=["interactibles"]]
+script = ExtResource("2_tmbxk")
+
+[node name="BabaYaga" type="MeshInstance3D" parent="." unique_id=276386204]
 transform = Transform3D(0.0147245135, 0, -0.9998916, 0, 1, 0, 0.9998916, 0, 0.0147245135, 0, 0, 0)
 mesh = SubResource("QuadMesh_cm22m")
 surface_material_override/0 = SubResource("StandardMaterial3D_ecj2m")
+
+[node name="InteractibleComponent" type="Node3D" parent="." unique_id=238340328 node_paths=PackedStringArray("mesh")]
+unique_name_in_owner = true
+transform = Transform3D(0.0147245135, 0, -0.9998916, 0, 1, 0, 0.9998916, 0, 0.0147245135, 0, 0, 0)
+script = ExtResource("2_773l5")
+mesh = NodePath("../BabaYaga")
+baba_yaga = true
+metadata/_custom_type_script = "uid://c0dsususytyb6"

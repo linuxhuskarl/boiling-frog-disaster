@@ -494,9 +494,8 @@ _data = {
 &"idle": SubResource("Animation_slgur")
 }
 
-[node name="Frog" type="Node3D" unique_id=507680623 node_paths=PackedStringArray("default_head_target")]
+[node name="Frog" type="Node3D" unique_id=507680623]
 script = ExtResource("1_j225e")
-default_head_target = NodePath("")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1271532965]
 libraries/ = SubResource("AnimationLibrary_j38ec")

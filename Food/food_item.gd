@@ -6,6 +6,7 @@ enum FoodType {
 	APPLE,
 	ONION,
 	POTATO,
+	EYE,
 	BOMB
 }
 
