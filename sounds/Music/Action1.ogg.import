@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Action1.ogg-0e6547e79a28107956f9ccbfb6fbac09.
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4
+loop=true
+loop_offset=0.0
+bpm=150.0
+beat_count=32
+bar_beats=8
