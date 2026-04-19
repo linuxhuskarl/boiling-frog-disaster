@@ -68,7 +68,8 @@ clip_0/auto_advance = 1
 clip_0/next_clip = 1
 clip_1/name = &"Calm"
 clip_1/stream = ExtResource("3_277tw")
-clip_1/auto_advance = 0
+clip_1/auto_advance = 1
+clip_1/next_clip = 2
 clip_2/name = &"Calm Transition To Action"
 clip_2/stream = ExtResource("4_fwiys")
 clip_2/auto_advance = 1
@@ -79,7 +80,8 @@ clip_3/auto_advance = 1
 clip_3/next_clip = 4
 clip_4/name = &"Action 2"
 clip_4/stream = ExtResource("6_277tw")
-clip_4/auto_advance = 0
+clip_4/auto_advance = 1
+clip_4/next_clip = 1
 _transitions = {
 Vector2i(0, 1): {
 "fade_beats": 1.0,
@@ -115,6 +117,12 @@ Vector2i(3, 1): {
 "fade_beats": 4.0,
 "fade_mode": 3,
 "from_time": 2,
+"to_time": 0
+},
+Vector2i(4, 1): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 3,
 "to_time": 0
 }
 }
@@ -199,7 +207,7 @@ shader_parameter/wave_time_scale_a = 0.05
 shader_parameter/wave_time_scale_b = 0.08
 shader_parameter/wave_height_scale = 0.5
 shader_parameter/wave_normal_flatness = 36.80000054836416
-shader_parameter/wave_time = 1458.1305883333719
+shader_parameter/wave_time = 542.9075939999967
 shader_parameter/surface_normals_a = SubResource("NoiseTexture2D_bcpi7")
 shader_parameter/surface_normals_b = SubResource("NoiseTexture2D_r4a3k")
 shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0.2)
