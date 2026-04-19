@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5eegtngr4qwg"]
 
-[ext_resource type="Script" uid="uid://dvnc1ep4u1aaf" path="res://floating_body.gd" id="1_3ed3y"]
+[ext_resource type="Script" uid="uid://cyicgfihismsn" path="res://Food/food_item.gd" id="1_qde4y"]
 [ext_resource type="Script" uid="uid://c0dsususytyb6" path="res://Food/interactible_component.gd" id="2_ma8cg"]
 [ext_resource type="PackedScene" uid="uid://wmft7u2ybiej" path="res://Assets/food_apple/food_apple_01_1k.gltf" id="3_qde4y"]
 
@@ -9,7 +9,8 @@ radius = 0.3
 
 [node name="Apple" type="RigidBody3D" unique_id=2144553780 node_paths=PackedStringArray("probe_container")]
 mass = 50.0
-script = ExtResource("1_3ed3y")
+script = ExtResource("1_qde4y")
+food_type = 1
 probe_container = NodePath("Probes")
 max_depth = 0.15
 frontal_area = 0.15
@@ -38,6 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, -0.21264112, 0)
 
 [node name="InteractibleComponent" type="Node3D" parent="." unique_id=923611890 node_paths=PackedStringArray("mesh")]
+unique_name_in_owner = true
 script = ExtResource("2_ma8cg")
 mesh = NodePath("../food_apple_01_1k/food_apple_01")
 

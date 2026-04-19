@@ -23,15 +23,32 @@ metadata/_custom_type_script = "uid://dvnc1ep4u1aaf"
 transform = Transform3D(1.0809389, 0, 0, 0, 1.0809389, 0, 0, 0, 1.0809389, 0, 0.21009326, -0.20718813)
 shape = SubResource("ConvexPolygonShape3D_viw7v")
 
+[node name="BellyContentText" type="Label3D" parent="." unique_id=1096618883]
+unique_name_in_owner = true
+transform = Transform3D(0.44805205, 0, 0, 0, 0.44805202, 0, 0, 0, 0.44805196, 0, 2, 0)
+billboard = 1
+double_sided = false
+fixed_size = true
+text = "TEST TEST TEST TEST"
+font_size = 16
+outline_size = 6
+
 [node name="Frog" parent="." unique_id=507680623 instance=ExtResource("2_viw7v")]
 transform = Transform3D(0.44805205, 0, 0, 0, 0.44805205, 0, 0, 0, 0.44805205, 0, 0.21009326, -0.94311583)
 
-[node name="SelectATargetComponent" type="Node3D" parent="Frog" unique_id=1383179788 node_paths=PackedStringArray("frog")]
+[node name="BoneAttachment3D" parent="Frog/frogga-nm2-rigged/Armature/Skeleton3D" parent_id_path=PackedInt32Array(507680623, 1309467056, 107537214) index="7" unique_id=546049366]
+transform = Transform3D(1, 0, -4.7184113e-07, -4.5497094e-07, -0.26500896, -0.964246, -1.250421e-07, 0.9642461, -0.26500893, 0, 0.7970231, 1.5122731)
+
+[node name="HandleL" parent="Frog/walnit-paddle/Armature/Skeleton3D" parent_id_path=PackedInt32Array(507680623, 435488472, 683899320) index="3" unique_id=1557427201]
+transform = Transform3D(-0.102057256, -0.4315124, 0.89631534, 0.9935799, 4.0369514e-08, 0.113132074, -0.048817948, 0.90210706, 0.42874202, 0.67639697, 0.104542404, -0.1286226)
+
+[node name="TargetSeekerComponent" type="Node3D" parent="Frog" unique_id=1383179788 node_paths=PackedStringArray("frog")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7979821, 2.2831159)
 script = ExtResource("3_henu8")
 frog = NodePath("..")
 
-[node name="Timer" type="Timer" parent="Frog/SelectATargetComponent" unique_id=186040693]
+[node name="Timer" type="Timer" parent="Frog/TargetSeekerComponent" unique_id=186040693]
 
 [node name="ProbeContainer" type="Node3D" parent="." unique_id=357347956]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26553392, 0)
@@ -47,3 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.1, -1.5)
 
 [node name="Marker3D4" type="Marker3D" parent="ProbeContainer" unique_id=382487935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.1, 1.2)
+
+[editable path="Frog"]
+[editable path="Frog/frogga-nm2-rigged"]
+[editable path="Frog/walnit-paddle"]

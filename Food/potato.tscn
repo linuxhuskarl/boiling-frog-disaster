@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://nnwfiom6iyr3"]
 
-[ext_resource type="Script" uid="uid://dvnc1ep4u1aaf" path="res://floating_body.gd" id="1_rx63k"]
+[ext_resource type="Script" uid="uid://cyicgfihismsn" path="res://Food/food_item.gd" id="1_8xkpb"]
 [ext_resource type="PackedScene" uid="uid://bp56mfqq6677i" path="res://Assets/sweet_potato/sweet_potato_1k.gltf" id="2_ybd78"]
 [ext_resource type="Script" uid="uid://c0dsususytyb6" path="res://Food/interactible_component.gd" id="3_8xkpb"]
 
@@ -10,7 +10,8 @@ height = 0.6812744
 
 [node name="Potato" type="RigidBody3D" unique_id=2144553780 node_paths=PackedStringArray("probe_container")]
 mass = 50.0
-script = ExtResource("1_rx63k")
+script = ExtResource("1_8xkpb")
+food_type = 3
 probe_container = NodePath("Probes")
 max_depth = 0.15
 frontal_area = 0.15
@@ -40,6 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
 transform = Transform3D(7, 0, 0, 0, -3.059797e-07, -7, 0, 7, -3.059797e-07, -0.00038692722, 0.00011326857, -0.014900014)
 
 [node name="InteractibleComponent" type="Node3D" parent="." unique_id=586614431 node_paths=PackedStringArray("mesh")]
+unique_name_in_owner = true
 script = ExtResource("3_8xkpb")
 mesh = NodePath("../sweet_potato_1k/sweet_potato")
 
