@@ -43,6 +43,8 @@ func update_text():
 	for item_t in items_in_the_belly:
 		spk.append(FoodItem.FoodType.keys()[item_t])
 	belly_content_text.text = ", ".join(spk)
+	if items_in_the_belly.is_empty():
+		belly_content_text.text = "Eat!"
 
 func vomit():
 	for item in items_in_the_belly:
