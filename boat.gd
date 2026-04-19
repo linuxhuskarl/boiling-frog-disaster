@@ -9,14 +9,22 @@ var seconds_per_stoke := 60.0 / strokes_per_minute
 var rowing_phase: float = 0.0
 var state: RowState = RowState.IDLE
 var current_target: Node3D = null
+var tongue_deployed := false
+var ready_to_vomit := false
+
+var items_in_the_belly: Array[FoodItem.FoodType]
+
+const TONGUE = preload("uid://tllbr30cihbp")
 
 @onready var frog: Frog = $Frog
-@onready var seeker: TargetSeekerComponent = $Frog/SelectATargetComponent
+@onready var seeker: TargetSeekerComponent = %TargetSeekerComponent
+@onready var tongue_source: Marker3D = $"Frog/frogga-nm2-rigged/Armature/Skeleton3D/BoneAttachment3D/TongueSource"
+@onready var belly_content_text: Label3D = %BellyContentText
 
 func try_change_highlight(target: Node3D, value: bool):
-	if not target: return
-	var ic := target.find_child("InteractibleComponent") as InteractibleComponent
-	if ic: ic.highlighted = value
+	var item := target as FoodItem
+	if not item: return
+	item.interactible_component.highlighted = value
 
 func _ready() -> void:
 	super._ready()
@@ -32,8 +40,9 @@ func _ready() -> void:
 		if current_target:
 			print_debug("Lost target: ", current_target)
 			try_change_highlight(current_target, false)
-		current_target = null
-		frog.head_target = null
+		if not tongue_deployed:
+			current_target = null
+			frog.head_target = null
 	)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,6 +53,31 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("row_backward"):
 		seeker.seek_active = true
 	elif Input.is_action_just_released("row_backward"):
+		if current_target and not tongue_deployed:
+			tongue_deployed = true
+			var tongue := TONGUE.instantiate() as Tongue
+			tongue_source.add_child(tongue)
+			tongue.start(tongue_source, current_target)
+			tongue.target_reached.connect(func(_node: Node3D):
+				pass
+			)
+			tongue.finished.connect(func():
+				tongue_deployed = false
+				var item = current_target as FoodItem
+				if item:
+					items_in_the_belly.append(item.food_type)
+					print_debug(items_in_the_belly)
+					var spk := []
+					for item_t in items_in_the_belly:
+						spk.append(FoodItem.FoodType.keys()[item_t])
+					belly_content_text.text = ", ".join(spk)
+					# play nom nom sound
+					# check crafting prereqs
+					# ready_to_vomit = true
+				current_target.queue_free()
+				current_target = null
+				frog.head_target = null
+			)
 		seeker.seek_active = false
 	
 	match state:

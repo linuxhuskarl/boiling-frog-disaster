@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dni4cep1qutqy"]
 
-[ext_resource type="Script" uid="uid://dvnc1ep4u1aaf" path="res://floating_body.gd" id="1_6shjf"]
+[ext_resource type="Script" uid="uid://cyicgfihismsn" path="res://Food/food_item.gd" id="1_cdrl3"]
 [ext_resource type="PackedScene" uid="uid://dhnvx54qukhr7" path="res://Assets/yellow_onion/yellow_onion_1k.gltf" id="2_6shjf"]
 [ext_resource type="Script" uid="uid://c0dsususytyb6" path="res://Food/interactible_component.gd" id="3_cdrl3"]
 
@@ -9,7 +9,8 @@ radius = 0.26469183
 
 [node name="Onion" type="RigidBody3D" unique_id=2144553780 node_paths=PackedStringArray("probe_container")]
 mass = 50.0
-script = ExtResource("1_6shjf")
+script = ExtResource("1_cdrl3")
+food_type = 2
 probe_container = NodePath("Probes")
 max_depth = 0.15
 frontal_area = 0.15
@@ -38,6 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
 transform = Transform3D(7, 2.5855422e-07, -1.4235421e-07, -2.5855422e-07, 3.7433155, -5.915031, -1.4235421e-07, 5.915031, 3.7433155, -0.0013529658, -0.13115963, -0.16147411)
 
 [node name="InteractibleComponent" type="Node3D" parent="." unique_id=589546579 node_paths=PackedStringArray("mesh")]
+unique_name_in_owner = true
 script = ExtResource("3_cdrl3")
 mesh = NodePath("../blend_export/yellow_onion")
 

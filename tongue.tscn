@@ -7,15 +7,21 @@ albedo_color = Color(1, 0.6313726, 1, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_sc3er"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5),
+"points": PackedVector3Array(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
 
 [node name="Tongue" type="Node3D" unique_id=152018351]
+top_level = true
 script = ExtResource("1_vu47e")
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=784896084]
+[node name="TongueTip" type="CSGSphere3D" parent="." unique_id=548094420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -4.937)
+radius = 0.2
+material = SubResource("StandardMaterial3D_cewit")
+
+[node name="TongueLength" type="CSGPolygon3D" parent="." unique_id=784896084]
 polygon = PackedVector2Array(0.011549547, -0.0004068613, -0.09579456, 0.02536127, -0.11497182, 0.085023805, -0.06596333, 0.13616315, 9.161234e-05, 0.15534042, 0.070408225, 0.13829401, 0.13220155, 0.08928545, 0.10450113, 0.02536127)
 mode = 2
 path_node = NodePath("../Path3D")
