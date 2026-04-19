@@ -16,6 +16,7 @@ max_depth = 0.15
 frontal_area = 0.15
 side_area = 0.15
 bottom_area = 0.25
+friction_drag_coeff = 0.1
 metadata/_custom_type_script = "uid://dvnc1ep4u1aaf"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1927558426]
