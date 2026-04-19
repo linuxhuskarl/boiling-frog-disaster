@@ -1,25 +1,39 @@
 [gd_scene format=4 uid="uid://dk843ir5h400r"]
 
 [ext_resource type="Texture2D" uid="uid://hbf0fvg7sw5k" path="res://Assets/brass_pot_02/brass_pot_02_diff_1k.jpg" id="1_etbpp"]
+[ext_resource type="AudioStream" uid="uid://cedjmuoxwpm54" path="res://sounds/Music/Intro.ogg" id="2_fwiys"]
 [ext_resource type="Texture2D" uid="uid://bs548p4kcmi0l" path="res://Assets/brass_pot_02/brass_pot_02_arm_1k.jpg" id="2_nname"]
+[ext_resource type="AudioStream" uid="uid://mctpmpiuxlls" path="res://sounds/Music/Calm.ogg" id="3_277tw"]
 [ext_resource type="Texture2D" uid="uid://o64nf8uptrbw" path="res://Assets/brass_pot_02/brass_pot_02_nor_gl_1k.jpg" id="3_b7e7i"]
+[ext_resource type="AudioStream" uid="uid://btxdtn2y3oyhp" path="res://sounds/Music/Calm_transition_to_action.ogg" id="4_fwiys"]
 [ext_resource type="Script" uid="uid://d4i4ky5g57pmv" path="res://water.gd" id="4_rvuv0"]
+[ext_resource type="AudioStream" uid="uid://dioxa4wt8oum8" path="res://sounds/Music/Boiling_water.ogg" id="5_fq6f0"]
+[ext_resource type="AudioStream" uid="uid://u7v7j5jpm4e2" path="res://sounds/Music/Action1.ogg" id="5_m6enp"]
 [ext_resource type="Shader" uid="uid://c3d638behmwd8" path="res://GodotSSRWater-ddaece5558759fb08943e5240efb53ccbcd0b7bf/shaders/water.gdshader" id="5_m24rg"]
+[ext_resource type="AudioStream" uid="uid://bbhmmwa8b0wwj" path="res://sounds/Music/Action2.ogg" id="6_277tw"]
+[ext_resource type="AudioStream" uid="uid://bspine0q5i4xl" path="res://sounds/BabaJaga/Aaaaahhhh.ogg" id="6_f6oor"]
 [ext_resource type="Script" uid="uid://dmwcfjvaeebvu" path="res://GodotSSRWater-ddaece5558759fb08943e5240efb53ccbcd0b7bf/FogVolume.gd" id="6_u5l0w"]
 [ext_resource type="PackedScene" uid="uid://d24584ns8k1q1" path="res://boat.tscn" id="7_6xsp2"]
-[ext_resource type="AudioStream" uid="uid://d0mpe2xyk772" path="res://GodotSSRWater-ddaece5558759fb08943e5240efb53ccbcd0b7bf/audio/Music/Intro.ogg" id="7_b7e7i"]
+[ext_resource type="AudioStream" uid="uid://clycxsg0gmvrp" path="res://sounds/BabaJaga/ChodzDoMamy.ogg" id="7_ensdl"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_t0tu2"]
-[ext_resource type="AudioStream" uid="uid://ift6nnpvs7kc" path="res://GodotSSRWater-ddaece5558759fb08943e5240efb53ccbcd0b7bf/audio/Music/Calm.ogg" id="8_ac4ux"]
+[ext_resource type="AudioStream" uid="uid://c74qthbssppua" path="res://sounds/BabaJaga/DajMiBuzi.ogg" id="8_fwiys"]
 [ext_resource type="PackedScene" uid="uid://dni4cep1qutqy" path="res://Food/onion.tscn" id="8_m24rg"]
-[ext_resource type="AudioStream" uid="uid://eykxim4uu883" path="res://GodotSSRWater-ddaece5558759fb08943e5240efb53ccbcd0b7bf/audio/Music/Action1.ogg" id="9_ac4ux"]
+[ext_resource type="AudioStream" uid="uid://bn0r6cgpmleyt" path="res://sounds/BabaJaga/Hahahaha.ogg" id="9_277tw"]
 [ext_resource type="PackedScene" uid="uid://nnwfiom6iyr3" path="res://Food/potato.tscn" id="9_u5l0w"]
 [ext_resource type="PackedScene" uid="uid://c5eegtngr4qwg" path="res://Food/apple.tscn" id="10_k2fni"]
+[ext_resource type="AudioStream" uid="uid://c8kh86m8imdqc" path="res://sounds/BabaJaga/NoChodzDoMamy.ogg" id="10_m6enp"]
 [ext_resource type="Texture2D" uid="uid://crm64vgbou7t5" path="res://Assets/wooden_spoon/textures/wooden_spoon_diff_1k.jpg" id="11_6ks3i"]
+[ext_resource type="AudioStream" uid="uid://d01whm7ka1i50" path="res://sounds/BabaJaga/NoChooodz.ogg" id="11_jbi20"]
+[ext_resource type="AudioStream" uid="uid://c6ku4bh03ihl3" path="res://sounds/BabaJaga/PokazDupe.ogg" id="12_5g6i1"]
 [ext_resource type="Texture2D" uid="uid://uor48r8im323" path="res://Assets/wooden_spoon/textures/wooden_spoon_arm_1k.jpg" id="12_lpagf"]
 [ext_resource type="Texture2D" uid="uid://deg3aj84ckff8" path="res://Assets/wooden_spoon/textures/wooden_spoon_nor_gl_1k.jpg" id="13_cacyh"]
+[ext_resource type="AudioStream" uid="uid://c27jjie8xso2m" path="res://sounds/BabaJaga/WezmeTylkoGryza.ogg" id="13_if8tu"]
 [ext_resource type="Texture2D" uid="uid://bdagkrg1phbpo" path="res://Assets/stone_fire_pit/textures/stone_fire_pit_diff_1k.jpg" id="14_ac4ux"]
+[ext_resource type="Script" uid="uid://dhx80uhnm0qw" path="res://s_baba_jaga.gd" id="14_cm22m"]
 [ext_resource type="Texture2D" uid="uid://cj56becska7se" path="res://Assets/stone_fire_pit/textures/stone_fire_pit_arm_1k.jpg" id="15_8od0w"]
 [ext_resource type="Texture2D" uid="uid://bjk1tmygq27y" path="res://Assets/stone_fire_pit/textures/stone_fire_pit_nor_gl_1k.jpg" id="16_aebt7"]
+[ext_resource type="Script" uid="uid://c08082vhbmiva" path="res://didaskalia.gd" id="17_277tw"]
+[ext_resource type="FontFile" uid="uid://cux3q6lpuum02" path="res://sounds/NOTSOUNDS/Cinzel Family/Cinzel/Cinzel-Black.otf" id="17_m6enp"]
 [ext_resource type="PackedScene" uid="uid://3hli74pd2x25" path="res://babelki_particle.tscn" id="20_aebt7"]
 [ext_resource type="PackedScene" uid="uid://cedc71d4wk8vt" path="res://dym_particle.tscn" id="21_4hubk"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="23_fq6f0"]
@@ -47,16 +61,25 @@ dof_blur_far_distance = 12.28
 dof_blur_far_transition = 41.74
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_8od0w"]
-clip_count = 3
+clip_count = 5
 clip_0/name = &"Intro"
-clip_0/stream = ExtResource("7_b7e7i")
-clip_0/auto_advance = 0
+clip_0/stream = ExtResource("2_fwiys")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
 clip_1/name = &"Calm"
-clip_1/stream = ExtResource("8_ac4ux")
+clip_1/stream = ExtResource("3_277tw")
 clip_1/auto_advance = 0
-clip_2/name = &"Action 1"
-clip_2/stream = ExtResource("9_ac4ux")
-clip_2/auto_advance = 0
+clip_2/name = &"Calm Transition To Action"
+clip_2/stream = ExtResource("4_fwiys")
+clip_2/auto_advance = 1
+clip_2/next_clip = 3
+clip_3/name = &"Action 1"
+clip_3/stream = ExtResource("5_m6enp")
+clip_3/auto_advance = 1
+clip_3/next_clip = 4
+clip_4/name = &"Action 2"
+clip_4/stream = ExtResource("6_277tw")
+clip_4/auto_advance = 0
 _transitions = {
 Vector2i(0, 1): {
 "fade_beats": 1.0,
@@ -71,18 +94,42 @@ Vector2i(1, 0): {
 "to_time": 0
 },
 Vector2i(1, 2): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 2,
+"to_time": 0
+},
+Vector2i(1, 3): {
 "fade_beats": 4.0,
 "fade_mode": 3,
 "from_time": 2,
 "to_time": 0
 },
-Vector2i(2, 1): {
+Vector2i(2, 3): {
+"fade_beats": 1.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 1
+},
+Vector2i(3, 1): {
 "fade_beats": 4.0,
 "fade_mode": 3,
 "from_time": 2,
 "to_time": 0
 }
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ecj2m"]
+random_pitch = 1.0594631
+streams_count = 8
+stream_0/stream = ExtResource("6_f6oor")
+stream_1/stream = ExtResource("7_ensdl")
+stream_2/stream = ExtResource("8_fwiys")
+stream_3/stream = ExtResource("9_277tw")
+stream_4/stream = ExtResource("10_m6enp")
+stream_5/stream = ExtResource("11_jbi20")
+stream_6/stream = ExtResource("12_5g6i1")
+stream_7/stream = ExtResource("13_if8tu")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6ks3i"]
 size = Vector2(52, 52)
@@ -152,7 +199,7 @@ shader_parameter/wave_time_scale_a = 0.05
 shader_parameter/wave_time_scale_b = 0.08
 shader_parameter/wave_height_scale = 0.5
 shader_parameter/wave_normal_flatness = 36.80000054836416
-shader_parameter/wave_time = 165.1711736666668
+shader_parameter/wave_time = 1458.1305883333719
 shader_parameter/surface_normals_a = SubResource("NoiseTexture2D_bcpi7")
 shader_parameter/surface_normals_b = SubResource("NoiseTexture2D_r4a3k")
 shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0.2)
@@ -396,6 +443,29 @@ autoplay = true
 max_distance = 3510.98
 bus = &"Music"
 
+[node name="S_Water" type="AudioStreamPlayer3D" parent="Camera3D" unique_id=1010266928]
+stream = ExtResource("5_fq6f0")
+max_db = -3.168
+autoplay = true
+bus = &"SFX"
+
+[node name="S_BabaJaga" type="AudioStreamPlayer3D" parent="Camera3D" unique_id=110679752]
+stream = SubResource("AudioStreamRandomizer_ecj2m")
+bus = &"BabaJaga"
+script = ExtResource("14_cm22m")
+
+[node name="Timer" type="Timer" parent="Camera3D/S_BabaJaga" unique_id=138049567]
+wait_time = 2.537
+autostart = true
+
+[node name="Didaskalia" type="Label3D" parent="Camera3D" unique_id=780275190]
+transform = Transform3D(0.9999542, -0.0078504775, 0.0056565274, 0.0076843365, 0.9995573, 0.02881594, -0.005880248, -0.0287708, 0.9995721, 0.1308743, -1.1495812, -2.632803)
+pixel_size = 0.0025
+font = ExtResource("17_m6enp")
+font_size = 64
+width = 504.89
+script = ExtResource("17_277tw")
+
 [node name="Water" type="Node3D" parent="." unique_id=1787143191 groups=["water"]]
 script = ExtResource("4_rvuv0")
 
@@ -488,3 +558,6 @@ look_at_damping = true
 align_transform_with_view = Callable()
 align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[connection signal="timeout" from="Camera3D/S_BabaJaga/Timer" to="Camera3D/S_BabaJaga" method="_on_timer_timeout"]
+[connection signal="timeout" from="Camera3D/S_BabaJaga/Timer" to="Camera3D/Didaskalia" method="_on_timer_timeout"]
