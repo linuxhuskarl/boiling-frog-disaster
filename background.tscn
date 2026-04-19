@@ -4,6 +4,7 @@
 
 [sub_resource type="QuadMesh" id="QuadMesh_if8tu"]
 size = Vector2(384, 216)
+center_offset = Vector3(0, 13.755, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cm22m"]
 transparency = 2
