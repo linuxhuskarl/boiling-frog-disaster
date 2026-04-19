@@ -60,6 +60,9 @@
 [ext_resource type="Script" uid="uid://do66wqi4i2j7t" path="res://baba_ranna.gd" id="54_n3xam"]
 [ext_resource type="AudioStream" uid="uid://dbkggqbwpqq2t" path="res://sounds/Extra/BabgaJabga/Smierc.ogg" id="55_ld3be"]
 [ext_resource type="Script" uid="uid://brre3gfejomyf" path="res://baba_smierc.gd" id="56_xe3m5"]
+[ext_resource type="AudioStream" uid="uid://cbgtompu1q5fx" path="res://sounds/Extra/Explosion/Explosion1.ogg" id="59_65rgv"]
+[ext_resource type="AudioStream" uid="uid://dk41relrg3udf" path="res://sounds/Extra/Explosion/Explosion2.ogg" id="60_aclwq"]
+[ext_resource type="Script" uid="uid://dyqsxhul6i7xc" path="res://wybuchy.gd" id="61_r7aml"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0dbrq"]
 sky_top_color = Color(0.63784295, 0.6378433, 0.63784295, 1)
@@ -135,6 +138,12 @@ Vector2i(3, 1): {
 "fade_beats": 4.0,
 "fade_mode": 3,
 "from_time": 2,
+"to_time": 0
+},
+Vector2i(3, 4): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 3,
 "to_time": 0
 },
 Vector2i(4, 1): {
@@ -225,7 +234,7 @@ shader_parameter/wave_time_scale_a = 0.05
 shader_parameter/wave_time_scale_b = 0.08
 shader_parameter/wave_height_scale = 0.5
 shader_parameter/wave_normal_flatness = 36.80000054836416
-shader_parameter/wave_time = 321.9965969999987
+shader_parameter/wave_time = 792.6558019999926
 shader_parameter/surface_normals_a = SubResource("NoiseTexture2D_bcpi7")
 shader_parameter/surface_normals_b = SubResource("NoiseTexture2D_r4a3k")
 shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0.2)
@@ -435,6 +444,12 @@ stream_1/stream = ExtResource("53_b111b")
 streams_count = 1
 stream_0/stream = ExtResource("55_ld3be")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oaoqi"]
+random_pitch = 1.063817
+streams_count = 2
+stream_0/stream = ExtResource("59_65rgv")
+stream_1/stream = ExtResource("60_aclwq")
+
 [node name="TestWorld" type="Node3D" unique_id=1328284762]
 
 [node name="GameManager" type="Node3D" parent="." unique_id=239651079]
@@ -451,7 +466,6 @@ shadow_enabled = true
 shadow_blur = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1278554854]
-physics_interpolation_mode = 1
 transform = Transform3D(0.0212996, 0.29927427, -0.9539294, -4.0978193e-06, 0.9541459, 0.29934207, 0.99977314, -0.006371958, 0.020324154, -22.224564, 11.22849, 0)
 top_level = true
 attributes = SubResource("CameraAttributesPractical_aebt7")
@@ -611,12 +625,18 @@ transform = Transform3D(0.014724523, 0, -0.9998922, 0, 1, 0, 0.9998922, 0, 0.014
 
 [node name="BabaRanna" type="AudioStreamPlayer3D" parent="BabaYaga" unique_id=442095926]
 stream = SubResource("AudioStreamRandomizer_65rgv")
-volume_db = 12.632
+volume_db = 11.228
 script = ExtResource("54_n3xam")
 
 [node name="BabaSmierc" type="AudioStreamPlayer3D" parent="BabaYaga" unique_id=1222305100]
 stream = SubResource("AudioStreamRandomizer_aclwq")
+volume_db = 4.912
 script = ExtResource("56_xe3m5")
+
+[node name="Wybuchy" type="AudioStreamPlayer3D" parent="BabaYaga" unique_id=1955164601]
+stream = SubResource("AudioStreamRandomizer_oaoqi")
+volume_db = 9.411
+script = ExtResource("61_r7aml")
 
 [node name="BG" parent="." unique_id=1261845884 instance=ExtResource("44_sqkwa")]
 transform = Transform3D(0.0147245135, 0, -0.9998916, 0, 1, 0, 0.9998916, 0, 0.0147245135, 35.13591, -63.451035, 0)
@@ -631,6 +651,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6458511, 1.9836197, 6.0547
 [connection signal="entered_water" from="RowBoat" to="RowBoat/S_Splash" method="_on_row_boat_entered_water"]
 [connection signal="pulling_sound" from="RowBoat" to="RowBoat/S_Pulling" method="_on_row_boat_pulling_sound"]
 [connection signal="baba_hurt" from="BabaYaga" to="BabaYaga/BabaRanna" method="_on_baba_yaga_baba_hurt"]
+[connection signal="baba_hurt" from="BabaYaga" to="BabaYaga/Wybuchy" method="_on_baba_yaga_baba_hurt"]
 [connection signal="game_over" from="BabaYaga" to="BabaYaga/BabaSmierc" method="_on_baba_yaga_game_over"]
+[connection signal="game_over" from="BabaYaga" to="BabaYaga/Wybuchy" method="_on_baba_yaga_game_over"]
 
 [editable path="BabaYaga"]
