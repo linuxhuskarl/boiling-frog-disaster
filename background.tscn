@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bwi2me2jmhhll"]
+
+[ext_resource type="Texture2D" uid="uid://c4m3ku0o4ydor" path="res://DigiPaint/Background.png" id="1_oabld"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_if8tu"]
+size = Vector2(384, 216)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cm22m"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_oabld")
+billboard_mode = 1
+stencil_mode = 3
+stencil_flags = 2
+
+[node name="BG" type="MeshInstance3D" unique_id=1261845884]
+transform = Transform3D(0.0147245135, 0, -0.9998916, 0, 1, 0, 0.9998916, 0, 0.0147245135, 0, 0, 0)
+mesh = SubResource("QuadMesh_if8tu")
+surface_material_override/0 = SubResource("StandardMaterial3D_cm22m")

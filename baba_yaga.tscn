@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d1njdl5prxtpg"]
+
+[ext_resource type="Texture2D" uid="uid://dsgrti117va3v" path="res://DigiPaint/Jaga.png" id="1_sr88s"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_cm22m"]
+size = Vector2(192, 108)
+center_offset = Vector3(-30.195, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecj2m"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_sr88s")
+billboard_mode = 1
+stencil_mode = 3
+stencil_flags = 2
+
+[node name="BabaYaga" type="MeshInstance3D" unique_id=276386204]
+transform = Transform3D(0.0147245135, 0, -0.9998916, 0, 1, 0, 0.9998916, 0, 0.0147245135, 0, 0, 0)
+mesh = SubResource("QuadMesh_cm22m")
+surface_material_override/0 = SubResource("StandardMaterial3D_ecj2m")
