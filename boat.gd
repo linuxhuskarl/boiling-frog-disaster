@@ -12,6 +12,8 @@ var current_target: Node3D = null
 var tongue_deployed := false
 var ready_to_vomit := false
 
+signal eating_sound
+
 var items_in_the_belly: Array[FoodItem.FoodType]
 
 const TONGUE = preload("uid://tllbr30cihbp")
@@ -74,6 +76,7 @@ func _process(delta: float) -> void:
 					# play nom nom sound
 					# check crafting prereqs
 					# ready_to_vomit = true
+					eating_sound.emit()
 				current_target.queue_free()
 				current_target = null
 				frog.head_target = null
