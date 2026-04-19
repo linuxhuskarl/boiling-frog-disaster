@@ -63,14 +63,23 @@ func vomit():
 		var food := food_scene.instantiate() as FoodItem
 		add_sibling(food)
 		var direction := global_basis.z
+		var timer_znikania := get_tree().create_timer(2.0)
+		timer_znikania.timeout.connect(func():
+			if not food:
+				return
+			food.queue_free()
+		)
 		if current_target:
 			direction = tongue_source.global_position.direction_to(current_target.global_position)
-			if current_target as BabaYaga:
+			if current_target as BabaYaga and \
+					food.food_type == food.FoodType.BOMB:
 				var baba := current_target as BabaYaga
-				var timer := get_tree().create_timer(1.5)
-				timer.timeout.connect(func():
-					food.queue_free()
-					baba.hurt()
+				var timer_baby := get_tree().create_timer(1.9)
+				timer_baby.timeout.connect(func():
+					if not food:
+						return
+					if food.global_position.distance_to(baba.global_position) < 5.0:
+						baba.hurt()
 				)
 		food.global_position = tongue_source.global_position + direction*0.5
 		food.linear_velocity = direction * 10.0 + Vector3.UP * 5.0
@@ -108,9 +117,12 @@ func _process(delta: float) -> void:
 	var rotation_input := Input.get_axis("row_anticlockwise", "row_clockwise")
 	
 	if Input.is_action_just_pressed("ui_accept"):
+		#żyganie
+		seeker.seeking_mode = TargetSeekerComponent.BABA
 		seeker.seek_active = true
 	if Input.is_action_just_released("ui_accept"):
 		vomit()
+		seeker.seeking_mode = TargetSeekerComponent.ITEMS
 		seeker.seek_active = false
 	
 	if Input.is_action_just_pressed("row_backward"):
@@ -138,7 +150,10 @@ func _process(delta: float) -> void:
 						items_in_the_belly.append(item.food_type)
 						update_stomach()
 						eating_sound.emit()
-				current_target.queue_free()
+					current_target.queue_free()
+				else:
+					#babayaga ihihihi
+					pass
 				current_target = null
 				frog.head_target = null
 			)
