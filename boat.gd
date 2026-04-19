@@ -13,6 +13,8 @@ var tongue_deployed := false
 var ready_to_vomit := false
 
 signal eating_sound
+signal blep_sound
+signal pulling_sound
 
 var items_in_the_belly: Array[FoodItem.FoodType]
 
@@ -57,10 +59,14 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_released("row_backward"):
 		if current_target and not tongue_deployed:
 			tongue_deployed = true
+			#bleeeep
+			blep_sound.emit()
 			var tongue := TONGUE.instantiate() as Tongue
 			tongue_source.add_child(tongue)
 			tongue.start(tongue_source, current_target)
 			tongue.target_reached.connect(func(_node: Node3D):
+				# SIUUUp
+				pulling_sound.emit()
 				pass
 			)
 			tongue.finished.connect(func():
