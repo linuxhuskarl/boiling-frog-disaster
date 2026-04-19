@@ -11,6 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_row_boat_entered_water(velocity: float) -> void:
-	if(velocity > 1):
-		play()
+func _on_row_boat_eating_sound() -> void:
+	play()

@@ -88,7 +88,7 @@ func _physics_process(_delta: float) -> void:
 	apply_linear_drag(total_displacement / volume)
 	
 	if not was_submerged and submerged:
-		entered_water.emit(linear_velocity.length())
+		entered_water.emit(linear_velocity.project(Vector3.UP).length())
 		#print_debug(name, " entered water")
 	if was_submerged and not submerged:
 		exited_water.emit()

@@ -42,9 +42,6 @@
 [ext_resource type="AudioStream" uid="uid://dhqkh4dxmfrh7" path="res://sounds/PlumSounds/Plum2.ogg" id="27_ecj2m"]
 [ext_resource type="AudioStream" uid="uid://3ch7hljhssp6" path="res://sounds/PlumSounds/Plum3.ogg" id="28_oqoeq"]
 [ext_resource type="Script" uid="uid://cptgehkjw3xkx" path="res://s_splash.gd" id="29_sqkwa"]
-[ext_resource type="AudioStream" uid="uid://cs0nfyj0x32ij" path="res://sounds/Frog/Jedzenie/Jedzenie1.ogg" id="30_sqkwa"]
-[ext_resource type="AudioStream" uid="uid://b6ci0gv1n3q21" path="res://sounds/Frog/Jedzenie/Jedzenie2.ogg" id="31_rl2ho"]
-[ext_resource type="Script" uid="uid://cs7o7q51hob5s" path="res://s_eating.gd" id="32_bxpul"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0dbrq"]
 sky_top_color = Color(0.63784295, 0.6378433, 0.63784295, 1)
@@ -214,7 +211,7 @@ shader_parameter/wave_time_scale_a = 0.05
 shader_parameter/wave_time_scale_b = 0.08
 shader_parameter/wave_height_scale = 0.5
 shader_parameter/wave_normal_flatness = 36.80000054836416
-shader_parameter/wave_time = 2035.6215870003484
+shader_parameter/wave_time = 148.56676266666696
 shader_parameter/surface_normals_a = SubResource("NoiseTexture2D_bcpi7")
 shader_parameter/surface_normals_b = SubResource("NoiseTexture2D_r4a3k")
 shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0.2)
@@ -337,11 +334,6 @@ streams_count = 3
 stream_0/stream = ExtResource("26_cm22m")
 stream_1/stream = ExtResource("27_ecj2m")
 stream_2/stream = ExtResource("28_oqoeq")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ivuk5"]
-streams_count = 2
-stream_0/stream = ExtResource("30_sqkwa")
-stream_1/stream = ExtResource("31_rl2ho")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8gfn"]
 resource_name = "wooden_spoon"
@@ -527,14 +519,9 @@ strokes_per_minute = 60.0
 
 [node name="S_Splash" type="AudioStreamPlayer3D" parent="RowBoat" unique_id=789048205]
 stream = SubResource("AudioStreamRandomizer_rl2ho")
-volume_db = 10.877
+volume_db = 15.377
 bus = &"SFX"
 script = ExtResource("29_sqkwa")
-
-[node name="S_Eating" type="AudioStreamPlayer3D" parent="RowBoat" unique_id=1812256369]
-stream = SubResource("AudioStreamRandomizer_ivuk5")
-volume_db = 4.21
-script = ExtResource("32_bxpul")
 
 [node name="Lycha" type="Node3D" parent="." unique_id=325826193]
 transform = Transform3D(79.929695, 1.003617, -3.1994252, -3.0900507, 51.68533, -60.98425, 1.3019812, 61.054237, 51.678673, -7.004529, -2.9847174, -4.986205)
@@ -599,5 +586,4 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [connection signal="timeout" from="Camera3D/S_BabaJaga/Timer" to="Camera3D/S_BabaJaga" method="_on_timer_timeout"]
 [connection signal="timeout" from="Camera3D/S_BabaJaga/Timer" to="Camera3D/Didaskalia" method="_on_timer_timeout"]
-[connection signal="eating_sound" from="RowBoat" to="RowBoat/S_Eating" method="_on_row_boat_eating_sound"]
 [connection signal="entered_water" from="RowBoat" to="RowBoat/S_Splash" method="_on_row_boat_entered_water"]
