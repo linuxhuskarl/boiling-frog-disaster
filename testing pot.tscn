@@ -53,6 +53,11 @@
 [ext_resource type="Script" uid="uid://cgrc8h66lsphi" path="res://s_pulling.gd" id="40_gbwty"]
 [ext_resource type="PackedScene" uid="uid://d1njdl5prxtpg" path="res://baba_yaga.tscn" id="43_oqoeq"]
 [ext_resource type="PackedScene" uid="uid://bwi2me2jmhhll" path="res://background.tscn" id="44_sqkwa"]
+[ext_resource type="AudioStream" uid="uid://cr5t3kv05webx" path="res://sounds/Extra/BabgaJabga/CzytoWszystko.ogg" id="52_teu7r"]
+[ext_resource type="AudioStream" uid="uid://bjxvtaovsqwyx" path="res://sounds/Extra/BabgaJabga/TyPieronie.ogg" id="53_b111b"]
+[ext_resource type="Script" uid="uid://do66wqi4i2j7t" path="res://baba_ranna.gd" id="54_n3xam"]
+[ext_resource type="AudioStream" uid="uid://dbkggqbwpqq2t" path="res://sounds/Extra/BabgaJabga/Smierc.ogg" id="55_ld3be"]
+[ext_resource type="Script" uid="uid://brre3gfejomyf" path="res://baba_smierc.gd" id="56_xe3m5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0dbrq"]
 sky_top_color = Color(0.63784295, 0.6378433, 0.63784295, 1)
@@ -221,7 +226,7 @@ shader_parameter/wave_time_scale_a = 0.05
 shader_parameter/wave_time_scale_b = 0.08
 shader_parameter/wave_height_scale = 0.5
 shader_parameter/wave_normal_flatness = 36.80000054836416
-shader_parameter/wave_time = 544.7094153333344
+shader_parameter/wave_time = 1265.3277719999942
 shader_parameter/surface_normals_a = SubResource("NoiseTexture2D_bcpi7")
 shader_parameter/surface_normals_b = SubResource("NoiseTexture2D_r4a3k")
 shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0.2)
@@ -416,6 +421,15 @@ data = PackedVector3Array(-0.0023, 0.0047, -0.043399997, -0.0007, 0.0056, -0.033
 [sub_resource type="Resource" id="Resource_t0tu2"]
 script = ExtResource("24_cdct0")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_65rgv"]
+streams_count = 2
+stream_0/stream = ExtResource("52_teu7r")
+stream_1/stream = ExtResource("53_b111b")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_aclwq"]
+streams_count = 1
+stream_0/stream = ExtResource("55_ld3be")
+
 [node name="TestWorld" type="Node3D" unique_id=1328284762]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=420497208]
@@ -430,7 +444,7 @@ shadow_blur = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1278554854]
 physics_interpolation_mode = 1
-transform = Transform3D(0.021302104, 0.29921865, -0.95394677, -4.3809414e-06, 0.9541633, 0.29928648, 0.9997731, -0.006371215, 0.020326972, -22.224564, 11.22849, 0)
+transform = Transform3D(0.021302095, 0.29921854, -0.95394623, -4.380939e-06, 0.95416296, 0.29928634, 0.9997726, -0.0063712127, 0.02032696, -22.224564, 11.22849, 0)
 top_level = true
 attributes = SubResource("CameraAttributesPractical_aebt7")
 current = true
@@ -589,6 +603,15 @@ transform = Transform3D(0.0147245135, 0, -0.9998916, 0, 1, 0, 0.9998916, 0, 0.01
 [node name="BabaYaga" parent="BabaYaga" index="0" unique_id=276386204]
 transform = Transform3D(0.014724523, 0, -0.9998922, 0, 1, 0, 0.9998922, 0, 0.014724523, 9.41994, -13.386882, -15.7001)
 
+[node name="BabaRanna" type="AudioStreamPlayer3D" parent="BabaYaga" unique_id=442095926]
+stream = SubResource("AudioStreamRandomizer_65rgv")
+volume_db = 12.632
+script = ExtResource("54_n3xam")
+
+[node name="BabaSmierc" type="AudioStreamPlayer3D" parent="BabaYaga" unique_id=1222305100]
+stream = SubResource("AudioStreamRandomizer_aclwq")
+script = ExtResource("56_xe3m5")
+
 [node name="BG" parent="." unique_id=1261845884 instance=ExtResource("44_sqkwa")]
 transform = Transform3D(0.0147245135, 0, -0.9998916, 0, 1, 0, 0.9998916, 0, 0.0147245135, 35.13591, -63.451035, 0)
 
@@ -601,5 +624,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6458511, 1.9836197, 6.0547
 [connection signal="eating_sound" from="RowBoat" to="RowBoat/S_Eating" method="_on_row_boat_eating_sound"]
 [connection signal="entered_water" from="RowBoat" to="RowBoat/S_Splash" method="_on_row_boat_entered_water"]
 [connection signal="pulling_sound" from="RowBoat" to="RowBoat/S_Pulling" method="_on_row_boat_pulling_sound"]
+[connection signal="baba_hurt" from="BabaYaga" to="BabaYaga/BabaRanna" method="_on_baba_yaga_baba_hurt"]
+[connection signal="game_over" from="BabaYaga" to="BabaYaga/BabaSmierc" method="_on_baba_yaga_game_over"]
 
 [editable path="BabaYaga"]
